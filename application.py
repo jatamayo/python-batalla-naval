@@ -1,26 +1,559 @@
-#coding:utf-8
+﻿#coding:utf-8
 #coding:cp1252
 import time
 import os
 import random
-
+#********************************************************************
 #********* IMPRESIONES DE TABLERO UNO CON Y SIN VISTA DE BARCOS******
+
+def oculto1():
+	print""
+
+
+def print_tablero_jugador1():
+    print u"\t\t\t\t\t      ******   OCEANO JUGADOR UNO   ******"
+    print u"\t\t\t\t\t\t",
+    for x in range(10):
+    	print str(x+1)+" |",
+    print u"\n"    
+    indice=1
+    for fila in tablero1:
+        print u"\t\t\t\t\t"+str(indice)+"|\t",
+        print u" | ".join(fila)
+        indice=indice+1
+def print_tablero_nuevo_jugador1():
+    print u"\t\t\t\t\t ******   OCEANO JUGADOR UNO   ******"
+    print u"\t\t\t\t\t",
+    for x in range(10):
+    	print str(x+1)+" |",
+    print u"\n"    
+    indice=1
+    for fila in tablero1:
+        print u"\t\t\t\t"+str(indice)+"|\t",
+        print u" | ".join(fila)
+        indice=indice+1    
+                
+def print_tablero_jugador1_sin_vista():
+
+    print u"\t\t\t\t\t      ******   OCEANO JUGADOR UNO   ******"
+    print u"\t\t\t\t\t\t",
+    for x in range(10):
+    	print str(x+1)+" |",
+    print u"\n"    
+    indice=1
+    for fila in tablero1_sin_vista:
+        print u"\t\t\t\t\t"+str(indice)+"|\t",
+        print u" | ".join(fila)
+        indice=indice+1
+def print_tablero_jugador1_sin_vista2():
+		
+	
+    print u"\t\t\t\t\t      ******   OCEANO JUGADOR UNO   ******"
+    print u"\t\t\t\t\t\t",
+    for x in range(10):
+    	print str(x+1)+" |",
+    print u"\n"    
+    indice=1
+    for fila in tablero1_sin_vista:
+        print u"\t\t\t\t\t"+str(indice)+"|\t",
+        print u" | ".join(fila)
+        indice=indice+1
+#*****************************************************************************
+#********* IMPRESIONES DE TABLERO DOS CON Y SIN VISTA DE BARCOS***************
+def print_tablero_jugador2():
+    print u"\t\t\t\t\t      ******   OCEANO JUGADOR DOS   ******"
+    print u"\t\t\t\t\t\t",
+    for x in range(10):
+    	print str(x+1)+" |",
+    print u"\n"    
+    indice=1
+    for fila in tablero2:
+        print u"\t\t\t\t\t"+str(indice)+"|\t",
+        print u" | ".join(fila)
+        indice=indice+1
+def print_tablero_jugador2_sin_vista():
+    print u"\t\t\t\t\t      ******   OCEANO JUGADOR DOS   ******"
+    print u"\t\t\t\t\t\t",
+    for x in range(10):
+    	print str(x+1)+" |",
+    print u"\n"    
+    indice=1
+    for fila in tablero2_sin_vista:
+        print u"\t\t\t\t\t"+str(indice)+"|\t",
+        print u" | ".join(fila)
+        indice=indice+1
+def print_tablero_jugador2_sin_vista2():
+    print u"\t\t\t\t\t      ******   OCEANO JUGADOR DOS   ******"
+    print u"\t\t\t\t\t\t",
+    for x in range(10):
+    	print str(x+1)+" |",
+    print u"\n"    
+    indice=1
+    for fila in tablero2_sin_vista:
+        print u"\t\t\t\t\t"+str(indice)+"|\t",
+        print u" | ".join(fila)
+        indice=indice+1
+    
+#*******************************************************************************
+#********* IMPRESIONES DE TABLERO PC CON Y SIN VISTA DE BARCOS******************
+def print_tablero_jugadorpc():
+
+    print u"\t\t\t\t\t            ******   OCEANO PC   ******"
+    print u"\t\t\t\t\t\t",
+    for x in range(10):
+    	print str(x+1)+" |",
+    print u"\n"    
+    indice=1
+    for fila in tableropc:
+        print u"\t\t\t\t\t"+str(indice)+"|\t",
+        print u" | ".join(fila)
+        indice=indice+1
+def print_tablero_jugadorpc_sin_vista():
+
+    print u"\t\t\t\t\t            ******   OCEANO PC   ******"
+    print u"\t\t\t\t\t\t",
+    for x in range(10):
+    	print str(x+1)+" |",
+    print u"\n"    
+    indice=1
+    for fila in tableropc_sin_vista:
+        print u"\t\t\t\t\t"+str(indice)+"|\t",
+        print u" | ".join(fila)
+        indice=indice+1
+def print_tablero_jugadorpc_sin_vista2():
+    
+    print u""
+    print u"\t\t\t\t\t            ******   OCEANO PC   ******"
+    print u"\t\t\t\t\t\t",
+    for x in range(10):
+    	print str(x+1)+" |",
+    print u"\n"    
+    indice=1
+    for fila in tableropc_sin_vista:
+        print u"\t\t\t\t\t"+str(indice)+"|\t",
+        print u" | ".join(fila)
+        indice=indice+1
+#*********************************************************************************    	            
+#**************PRIMER BARCO ******************************************************
+#******HUBICACIONES ALEATORIAS ***************************************************
+def jugador_uno():
+	fila1=random.randint(0,9)
+	columna1=random.randint(0,9)
+	#*** hubicacion aleatoria del segundo barco ***
+	fila2=random.randint(0,8)
+	columna2=random.randint(0,8)
+	#*** hubicacion aleatoria del tercer barco ***
+	fila3=random.randint(0,7)
+	columna3=random.randint(0,7)
+	#*** hubicacion aleatoria del cuarto barco ***
+	fila4=random.randint(0,6)
+	columna4=random.randint(0,6)	
+
+#********** VALIDACION HUBICACION *************************************************
+#******* HUBICACION BARCO NIVEL 1 *************************************************
+	tablero1[fila1][columna1]=u"O"
+	tablero1_sin_vista[fila1][columna1]
+#************************************************************************************	
+#****** HUBICACION Y ORIENTACION BARCO NIVEL 2*************************************
+	orientacion_barco2=random.randint(0,1)
+	if orientacion_barco2==1:
+		barco2=True
+		while barco2==True:
+			if tablero1[fila2][columna2]==u"-" and tablero1[fila2+1][columna2]==u"-":                                
+				tablero1[fila2][columna2]=u"O"
+				tablero1[fila2+1][columna2]=u"O"
+#***************************TABLERO CON BARCOS OCULTOS*******************************
+				tablero1_sin_vista[fila2][columna2]
+				tablero1_sin_vista[fila2+1][columna2]
+				break
+			elif tablero1[fila2][columna2]==u"O" or tablero1[fila2+1][columna2]==u"O":
+				fila2=random.randint(0,8)
+				columna2=random.randint(0,8)
+				barco2==True
+	elif orientacion_barco2==0:
+		barco2=True
+		while barco2==True:
+			if tablero1[fila2][columna2]==u"-" and tablero1[fila2][columna2+1]==u"-":                                
+				tablero1[fila2][columna2]=u"O"
+				tablero1[fila2][columna2+1]=u"O"
+#***************TABLERO CON BARCOS OCULTOS*****************************************
+				tablero1_sin_vista[fila2][columna2]
+				tablero1_sin_vista[fila2][columna2+1]
+				break
+			elif tablero1[fila2][columna2]==u"O" or tablero1[fila2][columna2+1]==u"O":
+				fila2=random.randint(0,8)
+				columna2=random.randint(0,8)
+				barco2==True
+#************************************************************************************				
+#******* HUBICACION Y ORIENTACION BARCO NIVEL 3*****************************************
+	orientacion_barco3=random.randint(0,1)
+	if orientacion_barco3==1:
+		barco3=True		
+		while barco3==True:
+			if tablero1[fila3][columna3]==u"-" and tablero1[fila3+1][columna3]==u"-" and tablero1[fila3+2][columna3]==u"-" :                                                                                                             
+				tablero1[fila3][columna3]=u"O"
+				tablero1[fila3+1][columna3]=u"O"
+				tablero1[fila3+2][columna3]=u"O"
+#***************TABLERO CON BARCOS OCULTOS*****************************************************
+				tablero1_sin_vista[fila3][columna3]
+				tablero1_sin_vista[fila3+1][columna3]
+				tablero1_sin_vista[fila3+2][columna3]
+
+
+				break
+			elif tablero1[fila3][columna3]==u"O" or tablero1[fila3+1][columna3]==u"O" or tablero1[fila3+2][columna3]==u"O":
+				fila3=random.randint(0,7)
+				columna3=random.randint(0,7)
+				barco3==True
+	elif orientacion_barco3==0:
+		barco3=True		
+		while barco3==True:
+			if tablero1[fila3][columna3]==u"-" and tablero1[fila3][columna3+1]==u"-" and tablero1[fila3][columna3+2]==u"-" :                                                                                                             
+				tablero1[fila3][columna3]=u"O"
+				tablero1[fila3][columna3+1]=u"O"
+				tablero1[fila3][columna3+2]=u"O"
+#***************TABLERO CON BARCOS OCULTOS*****************************************************
+				tablero1_sin_vista[fila3][columna3]
+				tablero1_sin_vista[fila3][columna3+1]
+				tablero1_sin_vista[fila3][columna3+2]
+
+				break
+			elif tablero1[fila3][columna3]==u"O" or tablero1[fila3][columna3+1]==u"O" or tablero1[fila3][columna3+2]==u"O":
+				fila3=random.randint(0,7)
+				columna3=random.randint(0,7)
+				barco3==True
+#************************************************************************************************				
+#********************************* HUBICACION Y ORIENTACION BARCO NIVEL 4 **********************************************************
+	orientacion_barco4=random.randint(0,1)
+	if orientacion_barco4==1:
+		barco4=True		
+		while barco4==True:
+			if tablero1[fila4][columna4]==u"-" and tablero1[fila4][columna4+1]==u"-" and tablero1[fila4][columna4+2]==u"-" and tablero1[fila4][columna4+3]==u"-":                                                                                                             
+				tablero1[fila4][columna4]=u"O"
+				tablero1[fila4][columna4+1]=u"O"
+				tablero1[fila4][columna4+2]=u"O"
+				tablero1[fila4][columna4+3]=u"O"
+#***************TABLERO CON BARCOS OCULTOS*****************************************************
+				tablero1_sin_vista[fila4][columna4]
+				tablero1_sin_vista[fila4][columna4+1]
+				tablero1_sin_vista[fila4][columna4+2]
+				tablero1_sin_vista[fila4][columna4+3]
+				break
+			elif tablero1[fila4][columna4]==u"O" or tablero1[fila4][columna4+1]==u"O" or tablero1[fila4][columna4+2]==u"O" or tablero1[fila4][columna4+3]==u"O":
+				fila4=random.randint(0,6)
+				columna4=random.randint(0,6)
+				barco4==True	
+	elif orientacion_barco4==0:
+		barco4=True		
+		while barco4==True:
+			if tablero1[fila4][columna4]==u"-" and tablero1[fila4+1][columna4]==u"-" and tablero1[fila4+2][columna4]==u"-" and tablero1[fila4+3][columna4]==u"-":                                                                                                             
+				tablero1[fila4][columna4]=u"O"
+				tablero1[fila4+1][columna4]=u"O"
+				tablero1[fila4+2][columna4]=u"O"
+				tablero1[fila4+3][columna4]=u"O"
+#***************************TABLERO CON BARCOS OCULTOS*****************************************************************
+				tablero1_sin_vista[fila4][columna4]
+				tablero1_sin_vista[fila4+1][columna4]
+				tablero1_sin_vista[fila4+2][columna4]
+				tablero1_sin_vista[fila4+3][columna4]
+				break
+			elif tablero1[fila4][columna4]==u"O" or tablero1[fila4+1][columna4]==u"O" or tablero1[fila4+2][columna4]==u"O" or tablero1[fila4+3][columna4]==u"O":
+				fila4=random.randint(0,6)
+				columna4=random.randint(0,6)
+				barco4==True	
+#************************************************************************************************************************************				
+#****************************HUBICACION DE BARCOS JUGADOR DOS***********************************************************************************
+def jugador_dos():
+	fila1=random.randint(0,9)
+	columna1=random.randint(0,9)
+	#*** hubicacion aleatoria del segundo barco ***
+	fila2=random.randint(0,8)
+	columna2=random.randint(0,8)
+	#*** hubicacion aleatoria del tercer barco ***
+	fila3=random.randint(0,7)
+	columna3=random.randint(0,7)
+	#*** hubicacion aleatoria del cuarto barco ***
+	fila4=random.randint(0,6)
+	columna4=random.randint(0,6)	
+#********************** VALIDACION HUBICACION *************************************
+#******************* HUBICACION BARCO NIVEL 1 *************************************
+	tablero2[fila1][columna1]=u"O"
+	tablero2_sin_vista[fila1][columna1]
+#************************************************************************************	
+#****** HUBICACION Y ORIENTACION BARCO NIVEL 2*************************************
+	orientacion_barco2=random.randint(0,1)
+	if orientacion_barco2==1:
+		barco2=True
+		while barco2==True:
+			if tablero2[fila2][columna2]==u"-" and tablero2[fila2+1][columna2]==u"-":                                
+				tablero2[fila2][columna2]=u"O"
+				tablero2[fila2+1][columna2]=u"O"
+#***************TABLERO CON BARCOS OCULTOS*****************************************************
+				tablero2_sin_vista[fila2][columna2]
+				tablero2_sin_vista[fila2+1][columna2]
+				break
+			elif tablero2[fila2][columna2]==u"O" or tablero2[fila2+1][columna2]==u"O":
+				fila2=random.randint(0,8)
+				columna2=random.randint(0,8)
+				barco2==True
+	elif orientacion_barco2==0:
+		barco2=True
+		while barco2==True:
+			if tablero2[fila2][columna2]==u"-" and tablero2[fila2][columna2+1]==u"-":                                
+				tablero2[fila2][columna2]=u"O"
+				tablero2[fila2][columna2+1]=u"O"
+
+#***************************TABLERO CON BARCOS OCULTOS*****************************
+				tablero2_sin_vista[fila2][columna2]
+				tablero2_sin_vista[fila2][columna2+1]
+				break
+			elif tablero2[fila2][columna2]==u"O" or tablero2[fila2][columna2+1]==u"O":
+				fila2=random.randint(0,8)
+				columna2=random.randint(0,8)
+				barco2==True
+#************************************************************************************				
+#******* HUBICACION Y ORIENTACION BARCO NIVEL 3*****************************************
+	orientacion_barco3=random.randint(0,1)
+	if orientacion_barco3==1:
+		barco3=True		
+		while barco3==True:
+			if tablero2[fila3][columna3]==u"-" and tablero2[fila3+1][columna3]==u"-" and tablero2	[fila3+2][columna3]==u"-" :                                                                                                             
+				tablero2[fila3][columna3]=u"O"
+				tablero2[fila3+1][columna3]=u"O"
+				tablero2[fila3+2][columna3]=u"O"
+
+#***************TABLERO CON BARCOS OCULTOS*****************************************************
+				tablero2_sin_vista[fila3][columna3]
+				tablero2_sin_vista[fila3+1][columna3]
+				tablero2_sin_vista[fila3+2][columna3]
+
+
+				break
+			elif tablero2[fila3][columna3]==u"O" or tablero2[fila3+1][columna3]==u"O" or tablero2[fila3+2][columna3]==u"O":
+				fila3=random.randint(0,7)
+				columna3=random.randint(0,7)
+				barco3==True
+	elif orientacion_barco3==0:
+		barco3=True		
+		while barco3==True:
+			if tablero2[fila3][columna3]==u"-" and tablero2[fila3][columna3+1]==u"-" and tablero2[fila3][columna3+2]==u"-" :                                                                                                             
+				tablero2[fila3][columna3]=u"O"
+				tablero2[fila3][columna3+1]=u"O"
+				tablero2[fila3][columna3+2]=u"O"
+
+#***************************TABLERO CON BARCOS OCULTOS*****************************************
+				tablero2_sin_vista[fila3][columna3]
+				tablero2_sin_vista[fila3][columna3+1]
+				tablero2_sin_vista[fila3][columna3+2]
+
+				break
+			elif tablero2[fila3][columna3]==u"O" or tablero2[fila3][columna3+1]==u"O" or tablero2[fila3][columna3+2]==u"O":
+				fila3=random.randint(0,7)
+				columna3=random.randint(0,7)
+				barco3==True
+#************************************************************************************************************				
+#********************************* HUBICACION Y ORIENTACION BARCO NIVEL 4 **********************************************************
+	orientacion_barco4=random.randint(0,1)
+	if orientacion_barco4==1:
+		barco4=True		
+		while barco4==True:
+			if tablero2[fila4][columna4]==u"-" and tablero2[fila4][columna4+1]==u"-" and tablero2[fila4][columna4+2]==u"-" and tablero2[fila4][columna4+3]==u"-":                                                                                                             
+				tablero2[fila4][columna4]=u"O"
+				tablero2[fila4][columna4+1]=u"O"
+				tablero2[fila4][columna4+2]=u"O"
+				tablero2[fila4][columna4+3]=u"O"
+
+#***************TABLERO CON BARCOS OCULTOS*****************************************************
+				tablero2_sin_vista[fila4][columna4]
+				tablero2_sin_vista[fila4][columna4+1]
+				tablero2_sin_vista[fila4][columna4+2]
+				tablero2_sin_vista[fila4][columna4+3]
+				break
+			elif tablero2[fila4][columna4]==u"O" or tablero2[fila4][columna4+1]==u"O" or tablero2[fila4][columna4+2]==u"O" or tablero2[fila4][columna4+3]==u"O":
+				fila4=random.randint(0,6)
+				columna4=random.randint(0,6)
+				barco4==True	
+	elif orientacion_barco4==0:
+		barco4=True		
+		while barco4==True:
+			if tablero2[fila4][columna4]==u"-" and tablero2[fila4+1][columna4]==u"-" and tablero2[fila4+2][columna4]==u"-" and tablero2[fila4+3][columna4]==u"-":                                                                                                             
+				tablero2[fila4][columna4]=u"O"
+				tablero2[fila4+1][columna4]=u"O"
+				tablero2[fila4+2][columna4]=u"O"
+				tablero2[fila4+3][columna4]=u"O"
+
+#***************************TABLERO CON BARCOS OCULTOS*****************************************************
+				tablero2_sin_vista[fila4][columna4]
+				tablero2_sin_vista[fila4+1][columna4]
+				tablero2_sin_vista[fila4+2][columna4]
+				tablero2_sin_vista[fila4+3][columna4]
+				break
+			elif tablero2[fila4][columna4]==u"O" or tablero2[fila4+1][columna4]==u"O" or tablero2[fila4+2][columna4]==u"O" or tablero2[fila4+3][columna4]==u"O":
+				fila4=random.randint(0,6)
+				columna4=random.randint(0,6)
+				barco4==True	
+#*********************************************************************************************************************************
+#*************************HUBICACION DE BARCOS PC********************************************************************************
+def jugador_pc():
+	fila1=random.randint(0,9)
+	columna1=random.randint(0,9)
+	#*** hubicacion aleatoria del segundo barco ***
+	fila2=random.randint(0,8)
+	columna2=random.randint(0,8)
+	#*** hubicacion aleatoria del tercer barco ***
+	fila3=random.randint(0,7)
+	columna3=random.randint(0,7)
+	#*** hubicacion aleatoria del cuarto barco ***
+	fila4=random.randint(0,6)
+	columna4=random.randint(0,6)	
+#********** VALIDACION HUBICACION *************************************************************
+#******* HUBICACION BARCO NIVEL 1 *************************************************************
+	tableropc[fila1][columna1]=u"O"
+	tableropc_sin_vista[fila1][columna1]
+#************************************************************************************************	
+#****** HUBICACION Y ORIENTACION BARCO NIVEL 2*************************************************
+	orientacion_barco2=random.randint(0,1)
+	if orientacion_barco2==1:
+		barco2=True
+		while barco2==True:
+			if tableropc[fila2][columna2]==u"-" and tableropc[fila2+1][columna2]==u"-":                                
+				tableropc[fila2][columna2]=u"O"
+				tableropc[fila2+1][columna2]=u"O"
+
+#***************************TABLERO CON BARCOS OCULTOS*****************************************
+				tableropc_sin_vista[fila2][columna2]
+				tableropc_sin_vista[fila2+1][columna2]
+				break
+			elif tableropc[fila2][columna2]==u"O" or tableropc[fila2+1][columna2]==u"O":
+				fila2=random.randint(0,8)
+				columna2=random.randint(0,8)
+				barco2==True
+	elif orientacion_barco2==0:
+		barco2=True
+		while barco2==True:
+			if tableropc[fila2][columna2]==u"-" and tableropc[fila2][columna2+1]==u"-":                                
+				tableropc[fila2][columna2]=u"O"
+				tableropc[fila2][columna2+1]=u"O"
+
+#***************************TABLERO CON BARCOS OCULTOS*****************************************
+				tableropc_sin_vista[fila2][columna2]
+				tableropc_sin_vista[fila2][columna2+1]
+				break
+			elif tableropc[fila2][columna2]==u"O" or tableropc[fila2][columna2+1]==u"O":
+				fila2=random.randint(0,8)
+				columna2=random.randint(0,8)
+				barco2==True
+#************************************************************************************************				
+#******* HUBICACION Y ORIENTACION BARCO NIVEL 3*****************************************************
+	orientacion_barco3=random.randint(0,1)
+	if orientacion_barco3==1:
+		barco3=True		
+		while barco3==True:
+			if tableropc[fila3][columna3]==u"-" and tableropc[fila3+1][columna3]==u"-" and tableropc[fila3+2][columna3]==u"-" :                                                                                                             
+				tableropc[fila3][columna3]=u"O"
+				tableropc[fila3+1][columna3]=u"O"
+				tableropc[fila3+2][columna3]=u"O"
+
+#***************************TABLERO CON BARCOS OCULTOS*****************************************************
+				tableropc_sin_vista[fila3][columna3]
+				tableropc_sin_vista[fila3+1][columna3]
+				tableropc_sin_vista[fila3+2][columna3]
+
+
+				break
+			elif tableropc[fila3][columna3]==u"O" or tableropc[fila3+1][columna3]==u"O" or tableropc[fila3+2][columna3]==u"O":
+				fila3=random.randint(0,7)
+				columna3=random.randint(0,7)
+				barco3==True
+	elif orientacion_barco3==0:
+		barco3=True		
+		while barco3==True:
+			if tableropc[fila3][columna3]==u"-" and tableropc[fila3][columna3+1]==u"-" and tableropc[fila3][columna3+2]==u"-" :                                                                                                             
+				tableropc[fila3][columna3]=u"O"
+				tableropc[fila3][columna3+1]=u"O"
+				tableropc[fila3][columna3+2]=u"O"
+
+#***************************TABLERO CON BARCOS OCULTOS*****************************************
+				tableropc_sin_vista[fila3][columna3]
+				tableropc_sin_vista[fila3][columna3+1]
+				tableropc_sin_vista[fila3][columna3+2]
+
+				break
+			elif tableropc[fila3][columna3]==u"O" or tableropc[fila3][columna3+1]==u"O" or tableropc[fila3][columna3+2]==u"O":
+				fila3=random.randint(0,7)
+				columna3=random.randint(0,7)
+				barco3==True
+#************************************************************************************************************				
+#********************************* HUBICACION Y ORIENTACION BARCO NIVEL 4 **********************************************************
+	orientacion_barco4=random.randint(0,1)
+	if orientacion_barco4==1:
+		barco4=True		
+		while barco4==True:
+			if tableropc[fila4][columna4]==u"-" and tableropc[fila4][columna4+1]==u"-" and tableropc[fila4][columna4+2]==u"-" and tableropc[fila4][columna4+3]==u"-":                                                                                                             
+				tableropc[fila4][columna4]=u"O"
+				tableropc[fila4][columna4+1]=u"O"
+				tableropc[fila4][columna4+2]=u"O"
+				tableropc[fila4][columna4+3]=u"O"
+
+#***************************TABLERO CON BARCOS OCULTOS*****************************************
+				tableropc_sin_vista[fila4][columna4]
+				tableropc_sin_vista[fila4][columna4+1]
+				tableropc_sin_vista[fila4][columna4+2]
+				tableropc_sin_vista[fila4][columna4+3]
+				break
+			elif tableropc[fila4][columna4]==u"O" or tableropc[fila4][columna4+1]==u"O" or tableropc[fila4][columna4+2]==u"O" or tableropc[fila4][columna4+3]==u"O":
+				fila4=random.randint(0,6)
+				columna4=random.randint(0,6)
+				barco4==True	
+	elif orientacion_barco4==0:
+		barco4=True		
+		while barco4==True:
+			if tableropc[fila4][columna4]==u"-" and tableropc[fila4+1][columna4]==u"-" and tableropc[fila4+2][columna4]==u"-" and tableropc[fila4+3][columna4]==u"-":                                                                                                             
+				tableropc[fila4][columna4]=u"O"
+				tableropc[fila4+1][columna4]=u"O"
+				tableropc[fila4+2][columna4]=u"O"
+				tableropc[fila4+3][columna4]=u"O"
+
+#***************************TABLERO CON BARCOS OCULTOS*****************************************
+				tableropc_sin_vista[fila4][columna4]
+				tableropc_sin_vista[fila4+1][columna4]
+				tableropc_sin_vista[fila4+2][columna4]
+				tableropc_sin_vista[fila4+3][columna4]
+				break
+			elif tableropc[fila4][columna4]==u"O" or tableropc[fila4+1][columna4]==u"O" or tableropc[fila4+2][columna4]==u"O" or tableropc[fila4+3][columna4]==u"O":
+				fila4=random.randint(0,6)
+				columna4=random.randint(0,6)
+				barco4==True	
+#**********************************************************************************************************************
+#************************************* FUNCION LIMPIAR ****************************************************************
+def limpiar():
+	for x in tablero1:
+		del tablero1[x]
+	for x in tablero1_sin_vista:
+		del tablero1_sin_vista[x]
+
+	for x in tableropc:
+		del tableropc[x]
+	for x in tableropc_sin_vista:
+		del tableropc_sin_vista[x]
+#************************************************************************************************************************
+#************************ FUNCIONES NOMBRES DE JUGADORES ************************************************************************
 def nombre_jugador_1():
-			print u"\t\t     ██╗██╗   ██╗ ██████╗  █████╗ ██████╗  ██████╗ ██████╗     ██╗   ██╗███╗   ██╗ ██████╗ "
-			print u"\t\t     ██║██║   ██║██╔════╝ ██╔══██╗██╔══██╗██╔═══██╗██╔══██╗    ██║   ██║████╗  ██║██╔═══██╗"
-			print u"\t\t     ██║██║   ██║██║  ███╗███████║██║  ██║██║   ██║██████╔╝    ██║   ██║██╔██╗ ██║██║   ██║"
-			print u"\t\t██   ██║██║   ██║██║   ██║██╔══██║██║  ██║██║   ██║██╔══██╗    ██║   ██║██║╚██╗██║██║   ██║"
-			print u"\t\t╚█████╔╝╚██████╔╝╚██████╔╝██║  ██║██████╔╝╚██████╔╝██║  ██║    ╚██████╔╝██║ ╚████║╚██████╔╝"
-			print u"\t\t ╚════╝  ╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚═════╝  ╚═════╝ ╚═╝  ╚═╝     ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝ "
-			print u""
+	print u"\t\t     ██╗██╗   ██╗ ██████╗  █████╗ ██████╗  ██████╗ ██████╗     ██╗   ██╗███╗   ██╗ ██████╗ "
+	print u"\t\t     ██║██║   ██║██╔════╝ ██╔══██╗██╔══██╗██╔═══██╗██╔══██╗    ██║   ██║████╗  ██║██╔═══██╗"
+	print u"\t\t     ██║██║   ██║██║  ███╗███████║██║  ██║██║   ██║██████╔╝    ██║   ██║██╔██╗ ██║██║   ██║"
+	print u"\t\t██   ██║██║   ██║██║   ██║██╔══██║██║  ██║██║   ██║██╔══██╗    ██║   ██║██║╚██╗██║██║   ██║"
+	print u"\t\t╚█████╔╝╚██████╔╝╚██████╔╝██║  ██║██████╔╝╚██████╔╝██║  ██║    ╚██████╔╝██║ ╚████║╚██████╔╝"
+	print u"\t\t ╚════╝  ╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚═════╝  ╚═════╝ ╚═╝  ╚═╝     ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝ "
+	print u""
 def nombre_jugador_2():
-			print u"\t\t     ██╗██╗   ██╗ ██████╗  █████╗ ██████╗  ██████╗ ██████╗     ██████╗  ██████╗ ███████╗"
-			print u"\t\t     ██║██║   ██║██╔════╝ ██╔══██╗██╔══██╗██╔═══██╗██╔══██╗    ██╔══██╗██╔═══██╗██╔════╝"
-			print u"\t\t     ██║██║   ██║██║  ███╗███████║██║  ██║██║   ██║██████╔╝    ██║  ██║██║   ██║███████╗"
-			print u"\t\t██   ██║██║   ██║██║   ██║██╔══██║██║  ██║██║   ██║██╔══██╗    ██║  ██║██║   ██║╚════██║"
-			print u"\t\t╚█████╔╝╚██████╔╝╚██████╔╝██║  ██║██████╔╝╚██████╔╝██║  ██║    ██████╔╝╚██████╔╝███████║"
-			print u"\t\t ╚════╝  ╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚═════╝  ╚═════╝ ╚═╝  ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝"
-			print u""
+	print u"\t\t     ██╗██╗   ██╗ ██████╗  █████╗ ██████╗  ██████╗ ██████╗     ██████╗  ██████╗ ███████╗"
+	print u"\t\t     ██║██║   ██║██╔════╝ ██╔══██╗██╔══██╗██╔═══██╗██╔══██╗    ██╔══██╗██╔═══██╗██╔════╝"
+	print u"\t\t     ██║██║   ██║██║  ███╗███████║██║  ██║██║   ██║██████╔╝    ██║  ██║██║   ██║███████╗"
+	print u"\t\t██   ██║██║   ██║██║   ██║██╔══██║██║  ██║██║   ██║██╔══██╗    ██║  ██║██║   ██║╚════██║"
+	print u"\t\t╚█████╔╝╚██████╔╝╚██████╔╝██║  ██║██████╔╝╚██████╔╝██║  ██║    ██████╔╝╚██████╔╝███████║"
+	print u"\t\t ╚════╝  ╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚═════╝  ╚═════╝ ╚═╝  ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝"
+	print u""
 def nombre_jugador_pc():
 	print u"\t\t\t     ██╗██╗   ██ ████████╗ ██████╗██████╗  ██████╗ ██████╗     ██████   ██████ "
 	print u"\t\t\t     ██║██║   ██║██╔════╝ ██╔══██╗██╔══██╗██╔═══██╗██╔══██╗    ██╔══██╗██╔════╝"
@@ -29,13 +562,15 @@ def nombre_jugador_pc():
 	print u"\t\t\t╚█████╔╝╚██████╔╝╚██████╔╝██║  ██║██████╔╝╚██████╔╝██║  ██║    ██║     ╚██████╗"
 	print u"\t\t\t ╚════╝  ╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚═════╝  ╚═════╝ ╚═╝  ╚═╝    ╚═╝      ╚═════╝"
 	print u""
+#************************************************************************************************************************
+#************************ FUNCION INICIO DE JUEGO JUGADOR UNO ************************************************************
 def inicio():
 	print u"\t\t\t\t\t   UN JUGADOR"
 	nombre_jugador1=raw_input("\t\t\t\t\t   INGRESE EL NOMBRE DEL JUGADOR: ")
 	print u"\t\t\t\t\tEXELENTE, BIENVENIDO (%s) "%(nombre_jugador1)
 	print u"\t\t\t\t\tPORFAVOR ESPERE UNOS SEGUNDO MIENTRAS COLOCAMOS TU FLOTA:"
 	time.sleep(1)
-	os.system("clear")
+	os.system("cls")
 	print u"\t\t███████╗██╗      ██████╗ ████████╗ █████╗      █████╗ ██╗     ██╗ █████╗ ██████╗  █████╗ "
 	print u"\t\t██╔════╝██║     ██╔═══██╗╚══██╔══╝██╔══██╗    ██╔══██╗██║     ██║██╔══██╗██╔══██╗██╔══██╗"
 	print u"\t\t█████╗  ██║     ██║   ██║   ██║   ███████║    ███████║██║     ██║███████║██║  ██║███████║"
@@ -62,6 +597,177 @@ def inicio():
 	print u""
 	print_tablero_nuevo_jugador1()
 	print u""
+#************************************************************************************************************************************
+#*****************************************************************************************************************************************************
+#**************************** SINGLE PLAYER *****************************************************************************************
+class un_jugador(object):
+	def single_player(self):
+		inicio()
+		self.pausa2=raw_input(u"\t\t\t\tAHORA ESTAMOS LISTOS PARA LA BATALLA, VAMOS POR ELLOS: ")
+		os.system("cls")
+#*******************************************************************************************************************************
+#************************************** TURNOS JUGADOR UNO *********************************************************************
+		total_pc=0
+		vidas=2
+
+		total_jugador1=0
+		while vidas>0:
+			disparo_repetido=True
+			while disparo_repetido==True:
+				nombre_jugador_1()
+				print_tablero_jugador1()
+				
+				print u""
+				print_tablero_jugadorpc_sin_vista2()
+				print u""
+#************************ DISPARO DE FILA JUGADOR UNO ************************************************************				
+				validar_disparo_jugador1_fila=True
+				while validar_disparo_jugador1_fila==True:
+					try:
+						self.disparo_jugador1_fila=int(raw_input(u"    \t\t\t\t\t\tingrese fila: "))
+						if self.disparo_jugador1_fila>10 or self.disparo_jugador1_fila<1:
+							print "\t\t\t\t\t\tEsto esta fuera del oceano"
+							print "\t\t\t\t\t\tSeria mejor si lo vuelves a intentar"
+							self.pase6=raw_input("")
+							os.system("cls")
+							nombre_jugador_1()
+							print_tablero_jugador1()
+							print u""
+							print_tablero_jugadorpc_sin_vista2()
+						
+						else:
+							self.disparo_jugador1_fila=self.disparo_jugador1_fila
+							break	
+					except:
+						print "\t\t\t\t\t\tAs ingresado letras"		
+						print "\t\t\t\t\t\tSeria mejor si lo vuelves a intentar"
+						self.pause5=raw_input("")
+						os.system("cls")
+						nombre_jugador_1()
+						print_tablero_jugador1()
+						print u""
+						print_tablero_jugadorpc_sin_vista2()
+#*************************DISPARO COLUMNA JUGADOR UNO ************************************************************
+				
+				validar_disparo_jugador1_columna=True
+				while validar_disparo_jugador1_columna==True:
+					try:
+						self.disparo_jugador1_columna=int(raw_input(u"    \t\t\t\t\t\tingrese columna: "))
+						if self.disparo_jugador1_columna>10 or self.disparo_jugador1_columna<1:
+							print "\t\t\t\t\t\tEsto esta fuera del oceano"
+							print "\t\t\t\t\t\tSeria mejor si lo vuelves a intentar"
+							pase6=raw_input("")
+							os.system("cls")
+							nombre_jugador_1()
+							print_tablero_jugador1()
+							print u""
+							print_tablero_jugadorpc_sin_vista2()
+							print u"    \t\t\t\t\t\tIngrese fila: %s"%(self.disparo_jugador1_fila)
+						else:
+							self.disparo_jugador1_columna=self.disparo_jugador1_columna
+							break	
+					except:
+						print ""
+						print "\t\t\t\t\t\tAs ingresado letras"		
+						print "\t\t\t\t\t\tSeria mejor si lo vuelves a intentar"
+						pause5=raw_input("")
+						os.system("cls")
+						nombre_jugador_1()
+						print_tablero_jugador1()
+						print u""
+						print_tablero_jugadorpc_sin_vista2()
+						print u"    \t\t\t\t\t\tIngrese fila: %s"%(self.disparo_jugador1_fila)
+#*********************************************************************************************************
+#****************************VALIDACION DISPARO REPETIDO JUGADOR UNO*****************************************
+				validar_disparo=tableropc[self.disparo_jugador1_fila-1][self.disparo_jugador1_columna-1]
+				if validar_disparo==u"#" or validar_disparo==u"*":
+					print u"    \t\t\t\t\t\tVAYA CAPITAN YA HEMOS DISPARADO EN ESTA POSICION"
+					print u"    \t\t\t\t\t\tSeria mejor si lo vuelve a intentar"
+					pausa7=raw_input("")
+					os.system("cls")
+					disparo_repetido=True
+				else:
+					disparo_repetido=False
+#*********************************************************************************************
+#********************************DISPARO ACERTADO JUGADOR UNO******************************************
+			validar=tableropc[self.disparo_jugador1_fila-1][self.disparo_jugador1_columna-1]
+			if validar==u"O":
+				tableropc_sin_vista[self.disparo_jugador1_fila-1][self.disparo_jugador1_columna-1]=u"#"
+				tableropc[self.disparo_jugador1_fila-1][self.disparo_jugador1_columna-1]=u"#"
+				print u"    \t\t\t\t\t\tEXELENTE CAPITAN... Hemos impactado el barco enemigo...!!"
+			  	print u""
+			  	total_jugador1=total_jugador1+1
+#************************ DISPARO FALLIDO JUGADOR UNO ************************************************			
+			else:
+			   	print u"    \t\t\t\t\t\tVAYA.. estuvimos bastante cerca pero no hemos logrado impactar..!!"
+			   	tableropc_sin_vista[self.disparo_jugador1_fila-1][self.disparo_jugador1_columna-1]=u"*"
+				tableropc[self.disparo_jugador1_fila-1][self.disparo_jugador1_columna-1]=u"*"
+				
+			   	
+			vidas=vidas-1
+			print u"\t\t\tt***************************** VIDAS RESTANTES %s *******************************"%(vidas)
+			pausa4=raw_input(u"")
+			os.system("cls")
+			
+#************************************************************************************************************************************
+#******************************************************************************************************************************
+#************************************ TURNOS PC ******************************************************************************
+			nombre_jugador_pc()
+			print_tablero_jugadorpc()
+			print ""
+			print_tablero_jugador1_sin_vista2()
+			fila_pc=random.randint(0,9)
+			columna_pc=random.randint(0,9)
+			print u""
+			print u"    \t\t\t\t\t\tEl jugador pc esta disparando"
+			time.sleep(2)
+			print "    \t\t\t\t\t\tEl jugador pc ha disparado en la posicion ( %s : %s )"%(fila_pc, columna_pc)
+#************************ DISPARO ACERTADO JUGADOR PC ************************************************************
+			validar=tablero1[fila_pc][columna_pc]
+			if validar ==u"O":
+				tablero1[fila_pc-1][columna_pc-1]=u"#"
+				tablero1_sin_vista[fila_pc-1][columna_pc-1]=u"#"
+				print "    \t\t\t\t\t\tEXELENTE CAPITAN... Hemos impactado el barco enemigo...!! le diste"
+				total_pc=total_pc+1
+#************************ DISPARO FALLIDO JUGADOR PC ************************************************************
+			else:
+				tablero1[fila_pc-1][columna_pc-1]=u"*" 
+				tablero1_sin_vista[fila_pc-1][columna_pc-1]=u"*" 
+				print "    \t\t\t\t\t\tVAYA.. estuvimos bastante cerca pero no hemos logrado impactar..!!"
+
+			print u"\t\t\tt***************************** VIDAS RESTANTES %s *******************************"%(vidas)
+			
+			pausa4=raw_input(u"")
+			os.system("cls")
+#************************************************************************************************************************
+#************************ RESULTADOS SINGLE PLAYER ************************************************************
+#************************ GANADOR JUGADOR UNO ************************************************************************
+			
+		if total_jugador1>total_pc:
+			ganador_jugador_1()
+#************************ GANADOR JUGADOR PC ************************************************************************************
+
+		elif total_jugador1<total_pc:
+			perdedor()
+#************************ EMPATE ************************************************************************************
+			
+		elif total_jugador1==total_pc:
+			print u"""
+	██╗  ██╗ █████╗     ███████╗██╗██████╗  ██████╗     ██╗   ██╗███╗   ██╗    ███████╗███╗   ███╗██████╗  █████╗ ████████╗███████╗
+	██║  ██║██╔══██╗    ██╔════╝██║██╔══██╗██╔═══██╗    ██║   ██║████╗  ██║    ██╔════╝████╗ ████║██╔══██╗██╔══██╗╚══██╔══╝██╔════╝
+	███████║███████║    ███████╗██║██║  ██║██║   ██║    ██║   ██║██╔██╗ ██║    █████╗  ██╔████╔██║██████╔╝███████║   ██║   █████╗  
+	██╔══██║██╔══██║    ╚════██║██║██║  ██║██║   ██║    ██║   ██║██║╚██╗██║    ██╔══╝  ██║╚██╔╝██║██╔═══╝ ██╔══██║   ██║   ██╔══╝  
+	██║  ██║██║  ██║    ███████║██║██████╔╝╚██████╔╝    ╚██████╔╝██║ ╚████║    ███████╗██║ ╚═╝ ██║██║     ██║  ██║   ██║   ███████╗
+	╚═╝  ╚═╝╚═╝  ╚═╝    ╚══════╝╚═╝╚═════╝  ╚═════╝      ╚═════╝ ╚═╝  ╚═══╝    ╚══════╝╚═╝     ╚═╝╚═╝     ╚═╝  ╚═╝   ╚═╝   ╚══════╝"""
+			 	
+			print_tablero_jugador1_sin_vista2()
+			print u""
+			print_tablero_jugadorpc_sin_vista2()
+			print total_jugador1
+			print total_pc
+			time.sleep(2)
+#************************************************************************************************************************************			
+#************************ FUNCION GANADOR JUGADOR UNO SINGLE PLAYER ************************************************************			
 def ganador_jugador_1():
 	print u""" 
 			 ██████╗  █████╗ ███╗   ██╗ █████╗ ██████╗  ██████╗ ██████╗     
@@ -98,6 +804,9 @@ def ganador_jugador_1():
 		 .`-.```-._ ``-..__``.- `.      _     -  _  _  _ -    _-   _  __/(.``-._"""
 	
 	time.sleep(2)
+#************************************************************************************************************************************
+#************************ GANADOR JUGADOR PC SINGLE PLAYER ************************************************************************
+	
 def perdedor():
 	print u"""
 			██╗  ██╗ █████╗ ███████╗    ██████╗ ███████╗██████╗ ██████╗ ██╗██████╗  ██████╗ 
@@ -136,691 +845,12 @@ def perdedor():
 			"""
 	
 	time.sleep(2)
-			
-
-
-
-
-
-def print_tablero_jugador1():
-
-   
-    print u"\t\t\t\t\t\t",
-    for x in range(10):
-    	print str(x+1)+" |",
-    print u"\n"    
-    indice=1
-    for fila in tablero1:
-        print u"\t\t\t\t\t"+str(indice)+"|\t",
-        print u" | ".join(fila)
-        indice=indice+1
-def print_tablero_nuevo_jugador1():
-    
-    print u"\t\t\t\t\t",
-    for x in range(10):
-    	print str(x+1)+" |",
-    print u"\n"    
-    indice=1
-    for fila in tablero1:
-        print u"\t\t\t\t"+str(indice)+"|\t",
-        print u" | ".join(fila)
-        indice=indice+1    
-                
-def print_tablero_jugador1_sin_vista():
-
-   
-    print u"\t\t\t\t\t\t",
-    for x in range(10):
-    	print str(x+1)+" |",
-    print u"\n"    
-    indice=1
-    for fila in tablero1_sin_vista:
-        print u"\t\t\t\t\t"+str(indice)+"|\t",
-        print u" | ".join(fila)
-        indice=indice+1
-def print_tablero_jugador1_sin_vista2():
-
-    print u"\t\t\t\t\t\t",
-    for x in range(10):
-    	print str(x+1)+" |",
-    print u"\n"    
-    indice=1
-    for fila in tablero1_sin_vista:
-        print u"\t\t\t\t\t"+str(indice)+"|\t",
-        print u" | ".join(fila)
-        indice=indice+1   
-#********************************************************************
-#********* IMPRESIONES DE TABLERO DOS CON Y SIN VISTA DE BARCOS******
-def print_tablero_jugador2():
-    
-    print u"\t\t\t\t\t\t",
-    for x in range(10):
-    	print str(x+1)+" |",
-    print u"\n"    
-    indice=1
-    for fila in tablero2:
-        print u"\t\t\t\t\t"+str(indice)+"|\t",
-        print u" | ".join(fila)
-        indice=indice+1
-def print_tablero_jugador2_sin_vista():
-    print u"\t\t\t\t\t\t",
-    for x in range(10):
-    	print str(x+1)+" |",
-    print u"\n"    
-    indice=1
-    for fila in tablero2_sin_vista:
-        print u"\t\t\t\t\t"+str(indice)+"|\t",
-        print u" | ".join(fila)
-        indice=indice+1
-def print_tablero_jugador2_sin_vista2():
-    print u"\t\t\t\t\t\t",
-    for x in range(10):
-    	print str(x+1)+" |",
-    print u"\n"    
-    indice=1
-    for fila in tablero2_sin_vista:
-        print u"\t\t\t\t\t"+str(indice)+"|\t",
-        print u" | ".join(fila)
-        indice=indice+1
-    
-#********************************************************************
-#********* IMPRESIONES DE TABLERO PC CON Y SIN VISTA DE BARCOS******
-def print_tablero_jugadorpc():
-
-    print u"\t\t\t\t\t            ******   OCEANO PC   ******"
-    print u"\t\t\t\t\t\t",
-    for x in range(10):
-    	print str(x+1)+" |",
-    print u"\n"    
-    indice=1
-    for fila in tableropc:
-        print u"\t\t\t\t\t"+str(indice)+"|\t",
-        print u" | ".join(fila)
-        indice=indice+1
-def print_tablero_jugadorpc_sin_vista():
-
-    print u"\t\t\t\t\t            ******   OCEANO PC   ******"
-    print u"\t\t\t\t\t\t",
-    for x in range(10):
-    	print str(x+1)+" |",
-    print u"\n"    
-    indice=1
-    for fila in tableropc_sin_vista:
-        print u"\t\t\t\t\t"+str(indice)+"|\t",
-        print u" | ".join(fila)
-        indice=indice+1
-def print_tablero_jugadorpc_sin_vista2():
-    
-    print u""
-    print u"\t\t\t\t\t            ******   OCEANO PC   ******"
-    print u"\t\t\t\t\t\t",
-    for x in range(10):
-    	print str(x+1)+" |",
-    print u"\n"    
-    indice=1
-    for fila in tableropc_sin_vista:
-        print u"\t\t\t\t\t"+str(indice)+"|\t",
-        print u" | ".join(fila)
-        indice=indice+1
-#*********************************************************************    	            
-#**************PRIMER BARCO ******************************************
-#******HUBICACIONES ALEATORIAS ***************************************
-def jugador_uno():
-	fila1=random.randint(0,9)
-	columna1=random.randint(0,9)
-	#*** hubicacion aleatoria del segundo barco ***
-	fila2=random.randint(0,8)
-	columna2=random.randint(0,8)
-	#*** hubicacion aleatoria del tercer barco ***
-	fila3=random.randint(0,7)
-	columna3=random.randint(0,7)
-	#*** hubicacion aleatoria del cuarto barco ***
-	fila4=random.randint(0,6)
-	columna4=random.randint(0,6)	
-
-#********** VALIDACION HUBICACION *************************************
-#******* HUBICACION BARCO NIVEL 1 *************************************
-	tablero1[fila1][columna1]=u"⚓"
-	tablero1_sin_vista[fila1][columna1]
-#****** HUBICACION Y ORIENTACION BARCO NIVEL 2*************************
-	orientacion_barco2=random.randint(0,1)
-	if orientacion_barco2==1:
-		barco2=True
-		while barco2==True:
-			if tablero1[fila2][columna2]==u"≈" and tablero1[fila2+1][columna2]==u"≈":                                
-				tablero1[fila2][columna2]=u"⚓"
-				tablero1[fila2+1][columna2]=u"⚓"
-				#***TABLERO CON BARCOS OCULTOS*****
-				tablero1_sin_vista[fila2][columna2]
-				tablero1_sin_vista[fila2+1][columna2]
-				break
-			elif tablero1[fila2][columna2]==u"⚓" or tablero1[fila2+1][columna2]==u"⚓":
-				fila2=random.randint(0,8)
-				columna2=random.randint(0,8)
-				barco2==True
-	elif orientacion_barco2==0:
-		barco2=True
-		while barco2==True:
-			if tablero1[fila2][columna2]==u"≈" and tablero1[fila2][columna2+1]==u"≈":                                
-				tablero1[fila2][columna2]=u"⚓"
-				tablero1[fila2][columna2+1]=u"⚓"
-				#***TABLERO CON BARCOS OCULTOS*****
-				tablero1_sin_vista[fila2][columna2]
-				tablero1_sin_vista[fila2][columna2+1]
-				break
-			elif tablero1[fila2][columna2]==u"⚓" or tablero1[fila2][columna2+1]==u"⚓":
-				fila2=random.randint(0,8)
-				columna2=random.randint(0,8)
-				barco2==True
-#******* HUBICACION Y ORIENTACION BARCO NIVEL 3*****************************************
-	orientacion_barco3=random.randint(0,1)
-	if orientacion_barco3==1:
-		barco3=True		
-		while barco3==True:
-			if tablero1[fila3][columna3]==u"≈" and tablero1[fila3+1][columna3]==u"≈" and tablero1[fila3+2][columna3]==u"≈" :                                                                                                             
-				tablero1[fila3][columna3]=u"⚓"
-				tablero1[fila3+1][columna3]=u"⚓"
-				tablero1[fila3+2][columna3]=u"⚓"
-				#***TABLERO CON BARCOS OCULTOS*****
-				tablero1_sin_vista[fila3][columna3]
-				tablero1_sin_vista[fila3+1][columna3]
-				tablero1_sin_vista[fila3+2][columna3]
-
-
-				break
-			elif tablero1[fila3][columna3]==u"⚓" or tablero1[fila3+1][columna3]==u"⚓" or tablero1[fila3+2][columna3]==u"⚓":
-				fila3=random.randint(0,7)
-				columna3=random.randint(0,7)
-				barco3==True
-	elif orientacion_barco3==0:
-		barco3=True		
-		while barco3==True:
-			if tablero1[fila3][columna3]==u"≈" and tablero1[fila3][columna3+1]==u"≈" and tablero1[fila3][columna3+2]==u"≈" :                                                                                                             
-				tablero1[fila3][columna3]=u"⚓"
-				tablero1[fila3][columna3+1]=u"⚓"
-				tablero1[fila3][columna3+2]=u"⚓"
-				#***TABLERO CON BARCOS OCULTOS*****
-				tablero1_sin_vista[fila3][columna3]
-				tablero1_sin_vista[fila3][columna3+1]
-				tablero1_sin_vista[fila3][columna3+2]
-
-				break
-			elif tablero1[fila3][columna3]==u"⚓" or tablero1[fila3][columna3+1]==u"⚓" or tablero1[fila3][columna3+2]==u"⚓":
-				fila3=random.randint(0,7)
-				columna3=random.randint(0,7)
-				barco3==True
-#********************************* HUBICACION Y ORIENTACION BARCO NIVEL 4 **********************************************************
-	orientacion_barco4=random.randint(0,1)
-	if orientacion_barco4==1:
-		barco4=True		
-		while barco4==True:
-			if tablero1[fila4][columna4]==u"≈" and tablero1[fila4][columna4+1]==u"≈" and tablero1[fila4][columna4+2]==u"≈" and tablero1[fila4][columna4+3]==u"≈":                                                                                                             
-				tablero1[fila4][columna4]=u"⚓"
-				tablero1[fila4][columna4+1]=u"⚓"
-				tablero1[fila4][columna4+2]=u"⚓"
-				tablero1[fila4][columna4+3]=u"⚓"
-				#***TABLERO CON BARCOS OCULTOS*****
-				tablero1_sin_vista[fila4][columna4]
-				tablero1_sin_vista[fila4][columna4+1]
-				tablero1_sin_vista[fila4][columna4+2]
-				tablero1_sin_vista[fila4][columna4+3]
-				break
-			elif tablero1[fila4][columna4]==u"⚓" or tablero1[fila4][columna4+1]==u"⚓" or tablero1[fila4][columna4+2]==u"⚓" or tablero1[fila4][columna4+3]==u"⚓":
-				fila4=random.randint(0,6)
-				columna4=random.randint(0,6)
-				barco4==True	
-	elif orientacion_barco4==0:
-		barco4=True		
-		while barco4==True:
-			if tablero1[fila4][columna4]==u"≈" and tablero1[fila4+1][columna4]==u"≈" and tablero1[fila4+2][columna4]==u"≈" and tablero1[fila4+3][columna4]==u"≈":                                                                                                             
-				tablero1[fila4][columna4]=u"⚓"
-				tablero1[fila4+1][columna4]=u"⚓"
-				tablero1[fila4+2][columna4]=u"⚓"
-				tablero1[fila4+3][columna4]=u"⚓"
-				#***TABLERO CON BARCOS OCULTOS*****
-				tablero1_sin_vista[fila4][columna4]
-				tablero1_sin_vista[fila4+1][columna4]
-				tablero1_sin_vista[fila4+2][columna4]
-				tablero1_sin_vista[fila4+3][columna4]
-				break
-			elif tablero1[fila4][columna4]==u"⚓" or tablero1[fila4+1][columna4]==u"⚓" or tablero1[fila4+2][columna4]==u"⚓" or tablero1[fila4+3][columna4]==u"⚓":
-				fila4=random.randint(0,6)
-				columna4=random.randint(0,6)
-				barco4==True	
-#*********************************************************************************************************************************
-def jugador_dos():
-	fila1=random.randint(0,9)
-	columna1=random.randint(0,9)
-	#*** hubicacion aleatoria del segundo barco ***
-	fila2=random.randint(0,8)
-	columna2=random.randint(0,8)
-	#*** hubicacion aleatoria del tercer barco ***
-	fila3=random.randint(0,7)
-	columna3=random.randint(0,7)
-	#*** hubicacion aleatoria del cuarto barco ***
-	fila4=random.randint(0,6)
-	columna4=random.randint(0,6)	
-#********** VALIDACION HUBICACION *************************************
-#******* HUBICACION BARCO NIVEL 1 *************************************
-	tablero2[fila1][columna1]=u"⚓"
-	tablero2_sin_vista[fila1][columna1]
-#****** HUBICACION Y ORIENTACION BARCO NIVEL 2*************************
-	orientacion_barco2=random.randint(0,1)
-	if orientacion_barco2==1:
-		barco2=True
-		while barco2==True:
-			if tablero2[fila2][columna2]==u"≈" and tablero2[fila2+1][columna2]==u"≈":                                
-				tablero2[fila2][columna2]=u"⚓"
-				tablero2[fila2+1][columna2]=u"⚓"
-				#***TABLERO CON BARCOS OCULTOS*****
-				tablero2_sin_vista[fila2][columna2]
-				tablero2_sin_vista[fila2+1][columna2]
-				break
-			elif tablero2[fila2][columna2]==u"⚓" or tablero2[fila2+1][columna2]==u"⚓":
-				fila2=random.randint(0,8)
-				columna2=random.randint(0,8)
-				barco2==True
-	elif orientacion_barco2==0:
-		barco2=True
-		while barco2==True:
-			if tablero2[fila2][columna2]==u"≈" and tablero2[fila2][columna2+1]==u"≈":                                
-				tablero2[fila2][columna2]=u"⚓"
-				tablero2[fila2][columna2+1]=u"⚓"
-				#***TABLERO CON BARCOS OCULTOS*****
-				tablero2_sin_vista[fila2][columna2]
-				tablero2_sin_vista[fila2][columna2+1]
-				break
-			elif tablero2[fila2][columna2]==u"⚓" or tablero2[fila2][columna2+1]==u"⚓":
-				fila2=random.randint(0,8)
-				columna2=random.randint(0,8)
-				barco2==True
-#******* HUBICACION Y ORIENTACION BARCO NIVEL 3*****************************************
-	orientacion_barco3=random.randint(0,1)
-	if orientacion_barco3==1:
-		barco3=True		
-		while barco3==True:
-			if tablero2[fila3][columna3]==u"≈" and tablero2[fila3+1][columna3]==u"≈" and tablero2	[fila3+2][columna3]==u"≈" :                                                                                                             
-				tablero2[fila3][columna3]=u"⚓"
-				tablero2[fila3+1][columna3]=u"⚓"
-				tablero2[fila3+2][columna3]=u"⚓"
-				#***TABLERO CON BARCOS OCULTOS*****
-				tablero2_sin_vista[fila3][columna3]
-				tablero2_sin_vista[fila3+1][columna3]
-				tablero2_sin_vista[fila3+2][columna3]
-
-
-				break
-			elif tablero2[fila3][columna3]==u"⚓" or tablero2[fila3+1][columna3]==u"⚓" or tablero2[fila3+2][columna3]==u"⚓":
-				fila3=random.randint(0,7)
-				columna3=random.randint(0,7)
-				barco3==True
-	elif orientacion_barco3==0:
-		barco3=True		
-		while barco3==True:
-			if tablero2[fila3][columna3]==u"≈" and tablero2[fila3][columna3+1]==u"≈" and tablero2[fila3][columna3+2]==u"≈" :                                                                                                             
-				tablero2[fila3][columna3]=u"⚓"
-				tablero2[fila3][columna3+1]=u"⚓"
-				tablero2[fila3][columna3+2]=u"⚓"
-				#***TABLERO CON BARCOS OCULTOS*****
-				tablero2_sin_vista[fila3][columna3]
-				tablero2_sin_vista[fila3][columna3+1]
-				tablero2_sin_vista[fila3][columna3+2]
-
-				break
-			elif tablero2[fila3][columna3]==u"⚓" or tablero2[fila3][columna3+1]==u"⚓" or tablero2[fila3][columna3+2]==u"⚓":
-				fila3=random.randint(0,7)
-				columna3=random.randint(0,7)
-				barco3==True
-#********************************* HUBICACION Y ORIENTACION BARCO NIVEL 4 **********************************************************
-	orientacion_barco4=random.randint(0,1)
-	if orientacion_barco4==1:
-		barco4=True		
-		while barco4==True:
-			if tablero2[fila4][columna4]==u"≈" and tablero2[fila4][columna4+1]==u"≈" and tablero2[fila4][columna4+2]==u"≈" and tablero2[fila4][columna4+3]==u"≈":                                                                                                             
-				tablero2[fila4][columna4]=u"⚓"
-				tablero2[fila4][columna4+1]=u"⚓"
-				tablero2[fila4][columna4+2]=u"⚓"
-				tablero2[fila4][columna4+3]=u"⚓"
-				#***TABLERO CON BARCOS OCULTOS*****
-				tablero2_sin_vista[fila4][columna4]
-				tablero2_sin_vista[fila4][columna4+1]
-				tablero2_sin_vista[fila4][columna4+2]
-				tablero2_sin_vista[fila4][columna4+3]
-				break
-			elif tablero2[fila4][columna4]==u"⚓" or tablero2[fila4][columna4+1]==u"⚓" or tablero2[fila4][columna4+2]==u"⚓" or tablero2[fila4][columna4+3]==u"⚓":
-				fila4=random.randint(0,6)
-				columna4=random.randint(0,6)
-				barco4==True	
-	elif orientacion_barco4==0:
-		barco4=True		
-		while barco4==True:
-			if tablero2[fila4][columna4]==u"≈" and tablero2[fila4+1][columna4]==u"≈" and tablero2[fila4+2][columna4]==u"≈" and tablero2[fila4+3][columna4]==u"≈":                                                                                                             
-				tablero2[fila4][columna4]=u"⚓"
-				tablero2[fila4+1][columna4]=u"⚓"
-				tablero2[fila4+2][columna4]=u"⚓"
-				tablero2[fila4+3][columna4]=u"⚓"
-				#***TABLERO CON BARCOS OCULTOS*****
-				tablero2_sin_vista[fila4][columna4]
-				tablero2_sin_vista[fila4+1][columna4]
-				tablero2_sin_vista[fila4+2][columna4]
-				tablero2_sin_vista[fila4+3][columna4]
-				break
-			elif tablero2[fila4][columna4]==u"⚓" or tablero2[fila4+1][columna4]==u"⚓" or tablero2[fila4+2][columna4]==u"⚓" or tablero2[fila4+3][columna4]==u"⚓":
-				fila4=random.randint(0,6)
-				columna4=random.randint(0,6)
-				barco4==True	
-#*********************************************************************************************************************************
-#*********************************************************************************************************************************
-def jugador_pc():
-	fila1=random.randint(0,9)
-	columna1=random.randint(0,9)
-	#*** hubicacion aleatoria del segundo barco ***
-	fila2=random.randint(0,8)
-	columna2=random.randint(0,8)
-	#*** hubicacion aleatoria del tercer barco ***
-	fila3=random.randint(0,7)
-	columna3=random.randint(0,7)
-	#*** hubicacion aleatoria del cuarto barco ***
-	fila4=random.randint(0,6)
-	columna4=random.randint(0,6)	
-#********** VALIDACION HUBICACION *************************************
-#******* HUBICACION BARCO NIVEL 1 *************************************
-	tableropc[fila1][columna1]=u"⚓"
-	tableropc_sin_vista[fila1][columna1]
-#****** HUBICACION Y ORIENTACION BARCO NIVEL 2*************************
-	orientacion_barco2=random.randint(0,1)
-	if orientacion_barco2==1:
-		barco2=True
-		while barco2==True:
-			if tableropc[fila2][columna2]==u"≈" and tableropc[fila2+1][columna2]==u"≈":                                
-				tableropc[fila2][columna2]=u"⚓"
-				tableropc[fila2+1][columna2]=u"⚓"
-				#***TABLERO CON BARCOS OCULTOS*****
-				tableropc_sin_vista[fila2][columna2]
-				tableropc_sin_vista[fila2+1][columna2]
-				break
-			elif tableropc[fila2][columna2]==u"⚓" or tableropc[fila2+1][columna2]==u"⚓":
-				fila2=random.randint(0,8)
-				columna2=random.randint(0,8)
-				barco2==True
-	elif orientacion_barco2==0:
-		barco2=True
-		while barco2==True:
-			if tableropc[fila2][columna2]==u"≈" and tableropc[fila2][columna2+1]==u"≈":                                
-				tableropc[fila2][columna2]=u"⚓"
-				tableropc[fila2][columna2+1]=u"⚓"
-				#***TABLERO CON BARCOS OCULTOS*****
-				tableropc_sin_vista[fila2][columna2]
-				tableropc_sin_vista[fila2][columna2+1]
-				break
-			elif tableropc[fila2][columna2]==u"⚓" or tableropc[fila2][columna2+1]==u"⚓":
-				fila2=random.randint(0,8)
-				columna2=random.randint(0,8)
-				barco2==True
-#******* HUBICACION Y ORIENTACION BARCO NIVEL 3*****************************************
-	orientacion_barco3=random.randint(0,1)
-	if orientacion_barco3==1:
-		barco3=True		
-		while barco3==True:
-			if tableropc[fila3][columna3]==u"≈" and tableropc[fila3+1][columna3]==u"≈" and tableropc[fila3+2][columna3]==u"≈" :                                                                                                             
-				tableropc[fila3][columna3]=u"⚓"
-				tableropc[fila3+1][columna3]=u"⚓"
-				tableropc[fila3+2][columna3]=u"⚓"
-				#***TABLERO CON BARCOS OCULTOS*****
-				tableropc_sin_vista[fila3][columna3]
-				tableropc_sin_vista[fila3+1][columna3]
-				tableropc_sin_vista[fila3+2][columna3]
-
-
-				break
-			elif tableropc[fila3][columna3]==u"⚓" or tableropc[fila3+1][columna3]==u"⚓" or tableropc[fila3+2][columna3]==u"⚓":
-				fila3=random.randint(0,7)
-				columna3=random.randint(0,7)
-				barco3==True
-	elif orientacion_barco3==0:
-		barco3=True		
-		while barco3==True:
-			if tableropc[fila3][columna3]==u"≈" and tableropc[fila3][columna3+1]==u"≈" and tableropc[fila3][columna3+2]==u"≈" :                                                                                                             
-				tableropc[fila3][columna3]=u"⚓"
-				tableropc[fila3][columna3+1]=u"⚓"
-				tableropc[fila3][columna3+2]=u"⚓"
-				#***TABLERO CON BARCOS OCULTOS*****
-				tableropc_sin_vista[fila3][columna3]
-				tableropc_sin_vista[fila3][columna3+1]
-				tableropc_sin_vista[fila3][columna3+2]
-
-				break
-			elif tableropc[fila3][columna3]==u"⚓" or tableropc[fila3][columna3+1]==u"⚓" or tableropc[fila3][columna3+2]==u"⚓":
-				fila3=random.randint(0,7)
-				columna3=random.randint(0,7)
-				barco3==True
-#********************************* HUBICACION Y ORIENTACION BARCO NIVEL 4 **********************************************************
-	orientacion_barco4=random.randint(0,1)
-	if orientacion_barco4==1:
-		barco4=True		
-		while barco4==True:
-			if tableropc[fila4][columna4]==u"≈" and tableropc[fila4][columna4+1]==u"≈" and tableropc[fila4][columna4+2]==u"≈" and tableropc[fila4][columna4+3]==u"≈":                                                                                                             
-				tableropc[fila4][columna4]=u"⚓"
-				tableropc[fila4][columna4+1]=u"⚓"
-				tableropc[fila4][columna4+2]=u"⚓"
-				tableropc[fila4][columna4+3]=u"⚓"
-				#***TABLERO CON BARCOS OCULTOS*****
-				tableropc_sin_vista[fila4][columna4]
-				tableropc_sin_vista[fila4][columna4+1]
-				tableropc_sin_vista[fila4][columna4+2]
-				tableropc_sin_vista[fila4][columna4+3]
-				break
-			elif tableropc[fila4][columna4]==u"⚓" or tableropc[fila4][columna4+1]==u"⚓" or tableropc[fila4][columna4+2]==u"⚓" or tableropc[fila4][columna4+3]==u"⚓":
-				fila4=random.randint(0,6)
-				columna4=random.randint(0,6)
-				barco4==True	
-	elif orientacion_barco4==0:
-		barco4=True		
-		while barco4==True:
-			if tableropc[fila4][columna4]==u"≈" and tableropc[fila4+1][columna4]==u"≈" and tableropc[fila4+2][columna4]==u"≈" and tableropc[fila4+3][columna4]==u"≈":                                                                                                             
-				tableropc[fila4][columna4]=u"⚓"
-				tableropc[fila4+1][columna4]=u"⚓"
-				tableropc[fila4+2][columna4]=u"⚓"
-				tableropc[fila4+3][columna4]=u"⚓"
-				#***TABLERO CON BARCOS OCULTOS*****
-				tableropc_sin_vista[fila4][columna4]
-				tableropc_sin_vista[fila4+1][columna4]
-				tableropc_sin_vista[fila4+2][columna4]
-				tableropc_sin_vista[fila4+3][columna4]
-				break
-			elif tableropc[fila4][columna4]==u"⚓" or tableropc[fila4+1][columna4]==u"⚓" or tableropc[fila4+2][columna4]==u"⚓" or tableropc[fila4+3][columna4]==u"⚓":
-				fila4=random.randint(0,6)
-				columna4=random.randint(0,6)
-				barco4==True	
-#**********************************************************************************************************************
-#************************************* FUNCION LIMPIAR ****************************************************************
-def limpiar():
-	for x in tablero1:
-		del tablero1[x]
-	for x in tablero1_sin_vista:
-		del tablero1_sin_vista[x]
-
-	for x in tableropc:
-		del tableropc[x]
-	for x in tableropc_sin_vista:
-		del tableropc_sin_vista[x]
-
-	
-
-
-			#print u"\t\t     ██╗██╗   ██╗ ██████╗  █████╗ ██████╗  ██████╗ ██████╗     ██╗   ██╗███╗   ██╗ ██████╗ "
-			#print u"\t\t     ██║██║   ██║██╔════╝ ██╔══██╗██╔══██╗██╔═══██╗██╔══██╗    ██║   ██║████╗  ██║██╔═══██╗"
-			#print u"\t\t     ██║██║   ██║██║  ███╗███████║██║  ██║██║   ██║██████╔╝    ██║   ██║██╔██╗ ██║██║   ██║"
-			#print u"\t\t██   ██║██║   ██║██║   ██║██╔══██║██║  ██║██║   ██║██╔══██╗    ██║   ██║██║╚██╗██║██║   ██║"
-			#print u"\t\t╚█████╔╝╚██████╔╝╚██████╔╝██║  ██║██████╔╝╚██████╔╝██║  ██║    ╚██████╔╝██║ ╚████║╚██████╔╝"
-			#print u"\t\t ╚════╝  ╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚═════╝  ╚═════╝ ╚═╝  ╚═╝     ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝ "
-			#print u""
-#*****************************************************************************************************************************************************
-#**************************** SINGLE PLAYER *****************************************************************************************
-class un_jugador(object):
-	def single_player(self):
-		inicio()
-		self.pausa2=raw_input(u"\t\t\t\tAHORA ESTAMOS LISTOS PARA LA BATALLA, VAMOS POR ELLOS: ")
-		os.system("clear")
-		#*******************************************************************************************************************************
-		#************************************** TURNOS JUGADOR UNO *********************************************************************
-		total_pc=0
-		vidas=2
-
-		total_jugador1=0
-		while vidas>0:
-			disparo_repetido=True
-			while disparo_repetido==True:
-				nombre_jugador_1()
-				print_tablero_jugador1()
-				
-				print u""
-				print_tablero_jugadorpc_sin_vista2()
-				print u""
-				validar_disparo_jugador1_fila=True
-				while validar_disparo_jugador1_fila==True:
-					try:
-						self.disparo_jugador1_fila=int(raw_input(u"    \t\t\t\t\t\tingrese fila: "))
-						if self.disparo_jugador1_fila>10 or self.disparo_jugador1_fila<1:
-							print "\t\t\t\t\t\tEsto esta fuera del oceano"
-							print "\t\t\t\t\t\tSeria mejor si lo vuelves a intentar"
-							self.pase6=raw_input("")
-							os.system("clear")
-							nombre_jugador_1()
-							print_tablero_jugador1()
-							print u""
-							print_tablero_jugadorpc_sin_vista2()
-						
-						else:
-							self.disparo_jugador1_fila=self.disparo_jugador1_fila
-							break	
-					except:
-						print "\t\t\t\t\t\tAs ingresado letras"		
-						print "\t\t\t\t\t\tSeria mejor si lo vuelves a intentar"
-						self.pause5=raw_input("")
-						os.system("clear")
-						nombre_jugador_1()
-						print_tablero_jugador1()
-						print u""
-						print_tablero_jugadorpc_sin_vista2()
-						#*******************************
-				validar_disparo_jugador1_columna=True
-				while validar_disparo_jugador1_columna==True:
-					try:
-						self.disparo_jugador1_columna=int(raw_input(u"    \t\t\t\t\t\tingrese columna: "))
-						if self.disparo_jugador1_columna>10 or self.disparo_jugador1_columna<1:
-							print "\t\t\t\t\t\tEsto esta fuera del oceano"
-							print "\t\t\t\t\t\tSeria mejor si lo vuelves a intentar"
-							pase6=raw_input("")
-							os.system("clear")
-							nombre_jugador_1()
-							print_tablero_jugador1()
-							print u""
-							print_tablero_jugadorpc_sin_vista2()
-							print u"    \t\t\t\t\t\tIngrese fila: %s"%(self.disparo_jugador1_fila)
-						else:
-							self.disparo_jugador1_columna=self.disparo_jugador1_columna
-							break	
-					except:
-						print ""
-						print "\t\t\t\t\t\tAs ingresado letras"		
-						print "\t\t\t\t\t\tSeria mejor si lo vuelves a intentar"
-						pause5=raw_input("")
-						os.system("clear")
-						nombre_jugador_1()
-						print_tablero_jugador1()
-						print u""
-						print_tablero_jugadorpc_sin_vista2()
-						print u"    \t\t\t\t\t\tIngrese fila: %s"%(self.disparo_jugador1_fila)
-					#*********************************************************************************************
-					#*********************************************************************************************
-				validar_disparo=tableropc[self.disparo_jugador1_fila-1][self.disparo_jugador1_columna-1]
-				if validar_disparo==u"☠" or validar_disparo==u"※":
-					print u"    \t\t\t\t\t\tVAYA CAPITAN YA HEMOS DISPARADO EN ESTA POSICION"
-					print u"    \t\t\t\t\t\tSeria mejor si lo vuelve a intentar"
-					pausa7=raw_input("")
-					os.system("clear")
-					disparo_repetido=True
-				else:
-					disparo_repetido=False
-				#*********************************************************************************************
-				#*********************************************************************************************
-			
-
-						#**************************************
-			validar=tableropc[self.disparo_jugador1_fila-1][self.disparo_jugador1_columna-1]
-			if validar==u"⚓":
-				tableropc_sin_vista[self.disparo_jugador1_fila-1][self.disparo_jugador1_columna-1]=u"☠"
-				tableropc[self.disparo_jugador1_fila-1][self.disparo_jugador1_columna-1]=u"☠"
-				print u"    \t\t\t\t\t\tEXELENTE CAPITAN... Hemos impactado el barco enemigo...!!"
-			  	print u""
-			  	total_jugador1=total_jugador1+1
-			
-			else:
-			   	print u"    \t\t\t\t\t\tVAYA.. estuvimos bastante cerca pero no hemos logrado impactar..!!"
-			   	tableropc_sin_vista[self.disparo_jugador1_fila-1][self.disparo_jugador1_columna-1]=u"※"
-				tableropc[self.disparo_jugador1_fila-1][self.disparo_jugador1_columna-1]=u"※"
-				
-			   	
-			vidas=vidas-1
-			print u"\t\t\tt***************************** VIDAS RESTANTES %s *******************************"%(vidas)
-			pausa4=raw_input(u"")
-			os.system("clear")
-			
-
-	#******************************************************************************************************************************
-	#************************************ TURNOS PC ******************************************************************************
-			nombre_jugador_pc()
-			print_tablero_jugadorpc()
-			
-			print_tablero_jugador1_sin_vista2()
-			fila_pc=random.randint(0,9)
-			columna_pc=random.randint(0,9)
-			print u""
-			print u"    \t\t\t\t\t\tEl jugador pc esta disparando"
-			time.sleep(2)
-			print "    \t\t\t\t\t\tEl jugador pc ha disparado en la posicion ( %s : %s )"%(fila_pc, columna_pc)
-			validar=tablero1[fila_pc][columna_pc]
-			if validar ==u"⚓":
-				tablero1[fila_pc-1][columna_pc-1]=u"☠"
-				tablero1_sin_vista[fila_pc-1][columna_pc-1]=u"☠"
-				print "    \t\t\t\t\t\tEXELENTE CAPITAN... Hemos impactado el barco enemigo...!! le diste"
-				total_pc=total_pc+1
-			else:
-				tablero1[fila_pc-1][columna_pc-1]=u"※" 
-				tablero1_sin_vista[fila_pc-1][columna_pc-1]=u"※" 
-				print "    \t\t\t\t\t\tVAYA.. estuvimos bastante cerca pero no hemos logrado impactar..!!"
-
-			print u"\t\t\tt***************************** VIDAS RESTANTES %s *******************************"%(vidas)
-			
-			pausa4=raw_input(u"")
-			os.system("clear")
-			
-		if total_jugador1>total_pc:
-			ganador_jugador_1()
-
-		elif total_jugador1<total_pc:
-			perdedor()
-			
-		elif total_jugador1==total_pc:
-			print u"""
-	██╗  ██╗ █████╗     ███████╗██╗██████╗  ██████╗     ██╗   ██╗███╗   ██╗    ███████╗███╗   ███╗██████╗  █████╗ ████████╗███████╗
-	██║  ██║██╔══██╗    ██╔════╝██║██╔══██╗██╔═══██╗    ██║   ██║████╗  ██║    ██╔════╝████╗ ████║██╔══██╗██╔══██╗╚══██╔══╝██╔════╝
-	███████║███████║    ███████╗██║██║  ██║██║   ██║    ██║   ██║██╔██╗ ██║    █████╗  ██╔████╔██║██████╔╝███████║   ██║   █████╗  
-	██╔══██║██╔══██║    ╚════██║██║██║  ██║██║   ██║    ██║   ██║██║╚██╗██║    ██╔══╝  ██║╚██╔╝██║██╔═══╝ ██╔══██║   ██║   ██╔══╝  
-	██║  ██║██║  ██║    ███████║██║██████╔╝╚██████╔╝    ╚██████╔╝██║ ╚████║    ███████╗██║ ╚═╝ ██║██║     ██║  ██║   ██║   ███████╗
-	╚═╝  ╚═╝╚═╝  ╚═╝    ╚══════╝╚═╝╚═════╝  ╚═════╝      ╚═════╝ ╚═╝  ╚═══╝    ╚══════╝╚═╝     ╚═╝╚═╝     ╚═╝  ╚═╝   ╚═╝   ╚══════╝"""
-			 	
-			print_tablero_jugador1_sin_vista2()
-			print u""
-			print_tablero_jugadorpc_sin_vista2()
-			print total_jugador1
-			print total_pc
-			time.sleep(2)
-		
+#************************************************************************************************************************************************
+#************************************************************************************************************************************************
+#************************ INICIO FUNCION MULTIPLAYER ************************************************************************		
 class dos_jugadores(object):
 	def multiplayer(self):
-		os.system("clear")
+		os.system("cls")
 		print u"\t\t███╗   ███╗██╗   ██╗██╗  ████████╗██╗     ██╗██╗   ██╗ ██████╗  █████╗ ██████╗  ██████╗ ██████╗ "
 		print u"\t\t████╗ ████║██║   ██║██║  ╚══██╔══╝██║     ██║██║   ██║██╔════╝ ██╔══██╗██╔══██╗██╔═══██╗██╔══██╗"
 		print u"\t\t██╔████╔██║██║   ██║██║     ██║   ██║     ██║██║   ██║██║  ███╗███████║██║  ██║██║   ██║██████╔╝"
@@ -848,13 +878,16 @@ class dos_jugadores(object):
 		print u"\t\t\t\t               '|:}::|::::|'~`~"""
 		print u"\t\t\t\t           ~`~""~`~"                 "~`~""~"
 		print u"\t\t\t\t                          ""~`~"
-		print u"\t\t≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈."
-		print u"\t\t.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈."
-		print u"\t\t\t.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈"
-		print u"\t\t\t\t.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈.≈"
+		print u"\t\t-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-."
+		print u"\t\t.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-."
+		print u"\t\t\t.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-"
+		print u"\t\t\t\t.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-"
+		print u"\n\n\n"
+		pausa=raw_input("")
+#********************************************************************************************************
 #********************************************************************************************************************
 #********************************** INGRESO DE NOMBRES MULTIJUGADOR *************************************************
-		os.system("clear")
+		os.system("cls")
 		print u"\t\t███╗   ███╗██╗   ██╗██╗  ████████╗██╗     ██╗██╗   ██╗ ██████╗  █████╗ ██████╗  ██████╗ ██████╗ "
 		print u"\t\t████╗ ████║██║   ██║██║  ╚══██╔══╝██║     ██║██║   ██║██╔════╝ ██╔══██╗██╔══██╗██╔═══██╗██╔══██╗"
 		print u"\t\t██╔████╔██║██║   ██║██║     ██║   ██║     ██║██║   ██║██║  ███╗███████║██║  ██║██║   ██║██████╔╝"
@@ -870,14 +903,13 @@ class dos_jugadores(object):
 		multijugador2_nombre=raw_input(u"\t\t\t\t\t\tIngrese el nombre del jugador numero (.2.)?: ")
 		print u"\t\t\t\t\t\tExcelente bienvenido %s"%(multijugador2_nombre)
 		print u""
-#********************************************************************************************************************
-#********************************************************************************************************************
 		self.pause7=raw_input("")
-		os.system("clear")
-		#*******************************************************************************************************************************
-	#************************************** TURNOS JUGADOR UNO *********************************************************************
+		os.system("cls")
+#*******************************************************************************************************************************
+#************************************** TURNOS JUGADOR UNO *********************************************************************
+#************************************ VIDAS ************************************************************************
 		vidas=2
-		
+#************************************************************************************************************************		
 		total_jugador1_multiplayer=0
 		total_jugador2_multiplayer=0
 		while vidas>0:
@@ -892,6 +924,7 @@ class dos_jugadores(object):
 				print u"\t\t\t\t\t        ******    OCEANO JUGADOR %s   ******"%(multijugador2_nombre)
 				print_tablero_jugador2_sin_vista2()
 				print u""
+#************************ DISPARO FILA JUGADOR UNO MULTIPLAYER ************************************************		
 				validar_disparo_jugador1_fila=True
 				while validar_disparo_jugador1_fila==True:
 					try:
@@ -900,7 +933,7 @@ class dos_jugadores(object):
 							print "\t\t\t\t\t\tEsto esta fuera del oceano"
 							print "\t\t\t\t\t\tSeria mejor si lo vuelves a intentar"
 							pase6=raw_input("")
-							os.system("clear")
+							os.system("cls")
 							nombre_jugador_1()
 							print u"\t\t\t\t\t        ******    OCEANO JUGADOR %s   ******"%(multijugador1_nombre)
 							print_tablero_jugador1()
@@ -916,7 +949,7 @@ class dos_jugadores(object):
 						print "\t\t\t\t\t\tAs ingresado letras"		
 						print "\t\t\t\t\t\tSeria mejor si lo vuelves a intentar"
 						self.pause5=raw_input("")
-						os.system("clear")
+						os.system("cls")
 						nombre_jugador_1()
 						print u"\t\t\t\t\t        ******    OCEANO JUGADOR %s   ******"%(multijugador1_nombre)
 						print_tablero_jugador1()
@@ -924,7 +957,7 @@ class dos_jugadores(object):
 						print u"\t\t\t\t\t        ******    OCEANO JUGADOR %s   ******"%(multijugador2_nombre)
 						print_tablero_jugador2_sin_vista2()
 						print u""
-						#*******************************
+#************************ DISPARO COLUMNA JUGADOR UNO MULTIPLAYER ************************************************
 				
 				validar_disparo_jugador1_columna=True
 				while validar_disparo_jugador1_columna==True:
@@ -934,7 +967,7 @@ class dos_jugadores(object):
 							print "\t\t\t\t\t\tEsto esta fuera del oceano"
 							print "\t\t\t\t\t\tSeria mejor si lo vuelves a intentar"
 							self.pase6=raw_input("")
-							os.system("clear")
+							os.system("cls")
 							nombre_jugador_1()
 							print u"\t\t\t\t\t        ******    OCEANO JUGADOR %s   ******"%(multijugador1_nombre)
 							print_tablero_jugador1()
@@ -949,7 +982,7 @@ class dos_jugadores(object):
 						print "\t\t\t\t\t\tAs ingresado letras"		
 						print "\t\t\t\t\t\tAeria mejor si lo vuelves a intentar"
 						self.pause5=raw_input("")
-						os.system("clear")
+						os.system("cls")
 						nombre_jugador_1()
 						print u"\t\t\t\t\t        ******    OCEANO JUGADOR %s   ******"%(multijugador1_nombre)
 						print_tablero_jugador1()
@@ -958,40 +991,38 @@ class dos_jugadores(object):
 						print_tablero_jugador2_sin_vista2()
 						print u"    \t\t\t\t\t\tIngrese fila: %s"%(self.disparo_jugador1_fila)
 								
-						#**************************************
-					#*********************************************************************************************
-					#*********************************************************************************************
+#******************************DISPARO REPETIDO JUGADOR UNO MULTIPLAYER*************************************************
 				validar_disparo=tablero2[self.disparo_jugador1_fila-1][self.disparo_jugador1_columna-1]
-				if validar_disparo==u"☠" or validar_disparo==u"※":
+				if validar_disparo==u"#" or validar_disparo==u"*":
 					print u"    \t\t\t\t\t\tVAYA CAPITAN YA HEMOS DISPARADO EN ESTA POSICION"
 					print u"    \t\t\t\t\t\tSeria mejor si lo vuelve a intentar"
 					pausa7=raw_input("")
-					os.system("clear")
+					os.system("cls")
 					disparo_repetido=True
 				else:
 					disparo_repetido=False
-				#*********************************************************************************************
-				#*********************************************************************************************
+#****************************DISPARO ACERTADO JUGADOR UNO MULTIPLAYER*************************************************************
 			validar=tablero2[self.disparo_jugador1_fila-1][self.disparo_jugador1_columna-1]
-			if validar==u"⚓":
-				tablero2[self.disparo_jugador1_fila-1][self.disparo_jugador1_columna-1]=u"☠"
-				tablero2_sin_vista[self.disparo_jugador1_fila-1][self.disparo_jugador1_columna-1]=u"☠"
+			if validar==u"O":
+				tablero2[self.disparo_jugador1_fila-1][self.disparo_jugador1_columna-1]=u"#"
+				tablero2_sin_vista[self.disparo_jugador1_fila-1][self.disparo_jugador1_columna-1]=u"#"
 				print u"    \t\t\t\t\t\tEXELENTE CAPITAN... Hemos impactado el barco enemigo...!!"
 			  	print u""
 			  	total_jugador1_multiplayer=total_jugador1_multiplayer+1
+#************************ DISPARO FALLIDO JUGADOR UNO MULTIPLAYER			  	
 			else:
 			   	print u"    \t\t\t\t\t\tVAYA.. estuvimos bastante cerca pero no hemos logrado impactar..!!"
-			   	tablero2[self.disparo_jugador1_fila-1][self.disparo_jugador1_columna-1]=u"※"
-				tablero2_sin_vista[self.disparo_jugador1_fila-1][self.disparo_jugador1_columna-1]=u"※"
+			   	tablero2[self.disparo_jugador1_fila-1][self.disparo_jugador1_columna-1]=u"*"
+				tablero2_sin_vista[self.disparo_jugador1_fila-1][self.disparo_jugador1_columna-1]=u"*"
 			   	
 			vidas=vidas-1
 			print u"\t\t\tt***************************** VIDAS RESTANTES %s *******************************"%(vidas)
 			self.pausa4=raw_input(u"")
-			os.system("clear")
+			os.system("cls")
 			
 
-	#******************************************************************************************************************************
-	#************************************ TURNOS JUGADOR DOS ******************************************************************************
+#******************************************************************************************************************************
+#************************************ TURNOS JUGADOR DOS ******************************************************************************
 			#total_jugador2_multiplayer=0
 			
 			
@@ -1004,7 +1035,8 @@ class dos_jugadores(object):
 				print u"\t\t\t\t\t        ******    OCEANO JUGADOR %s   ******"%(multijugador1_nombre)
 				print_tablero_jugador1_sin_vista2()
 				print u""
-				
+
+#************************ DISPARO FILA JUGADOR DOS MULTIPLAYER ************************************************				
 				validar_disparo_jugador2_fila=True
 				while validar_disparo_jugador2_fila==True:
 					try:
@@ -1013,7 +1045,7 @@ class dos_jugadores(object):
 							print "\t\t\t\t\t\tEsto esta fuera del oceano"
 							print "\t\t\t\t\t\tSeria mejor si lo vuelves a intentar"
 							self.pase6=raw_input("")
-							os.system("clear")
+							os.system("cls")
 							nombre_jugador_2()
 							print u"\t\t\t\t\t        ******    OCEANO JUGADOR %s   ******"%(multijugador2_nombre)
 							print_tablero_jugador2()
@@ -1029,7 +1061,7 @@ class dos_jugadores(object):
 						print "\t\t\t\t\t\tSeria mejor si lo vuelves a intentar"
 						
 						self.pause5=raw_input("")
-						os.system("clear")
+						os.system("cls")
 						nombre_jugador_2()
 						print u"\t\t\t\t\t        ******    OCEANO JUGADOR %s   ******"%(multijugador2_nombre)
 						print_tablero_jugador2()
@@ -1037,7 +1069,7 @@ class dos_jugadores(object):
 						print u"\t\t\t\t\t        ******    OCEANO JUGADOR %s   ******"%(multijugador1_nombre)
 						print_tablero_jugador1_sin_vista2()
 						print u""
-						#*******************************
+#****************************DISPARO COLUMNA JUGADOR DOS MULTIPLAYER***************************************
 				validar_disparo_jugador2_columna=True
 				while validar_disparo_jugador2_columna==True:
 					try:
@@ -1046,7 +1078,7 @@ class dos_jugadores(object):
 							print "\t\t\t\t\t\tEsto esta fuera del oceano"
 							print "\t\t\t\t\t\tSeria mejor si lo vuelves a intentar"
 							pase6=raw_input("")
-							os.system("clear")
+							os.system("cls")
 							nombre_jugador_2()
 							print u"\t\t\t\t\t        ******    OCEANO JUGADOR %s   ******"%(multijugador2_nombre)
 							print_tablero_jugador2()
@@ -1061,7 +1093,7 @@ class dos_jugadores(object):
 						print "\t\t\t\t\t\tAs ingresado letras"		
 						print "\t\t\t\t\t\tSeria mejor si lo vuelves a intentar"
 						self.pause5=raw_input("")
-						os.system("clear")
+						os.system("cls")
 						nombre_jugador_2()
 						print u"\t\t\t\t\t        ******    OCEANO JUGADOR %s   ******"%(multijugador2_nombre)
 						print_tablero_jugador2()
@@ -1070,38 +1102,38 @@ class dos_jugadores(object):
 						print_tablero_jugador1_sin_vista2()
 						print u"    \t\t\t\t\t\tIngrese fila: %s"%(self.disparo_jugador2_fila)
 								
-						#**************************************
-			#*********************************************************************************************
-					#*********************************************************************************************
+#******************************DISPARO REPETIDO JUGADOR DOS MULTIPLAYER**************************************************
 				validar_disparo=tablero1[self.disparo_jugador2_fila-1][self.disparo_jugador2_columna-1]
-				if validar_disparo==u"☠" or validar_disparo==u"※":
+				if validar_disparo==u"#" or validar_disparo==u"*":
 					print u"    \t\t\t\t\t\tVAYA CAPITAN YA HEMOS DISPARADO EN ESTA POSICION"
 					print u"    \t\t\t\t\t\tSeria mejor si lo vuelve a intentar"
 					pausa7=raw_input("")
-					os.system("clear")
+					os.system("cls")
 					disparo_repetido=True
 				else:
 					disparo_repetido=False
-				#*********************************************************************************************
-				#********************************************************************************************
+#*******************************DISPARO ACERTADO JUGADOR DOS MULTIPLAYER*********************************************
 			validar=tablero1[self.disparo_jugador2_fila-1][self.disparo_jugador2_columna-1]
-			if validar==u"⚓":
+			if validar==u"O":
 				print u"    \t\t\t\t\t\tEXELENTE CAPITAN... Hemos impactado el barco enemigo...!!"
-			  	tablero1[self.disparo_jugador2_fila-1][self.disparo_jugador2_columna-1]=u"☠"
-			  	tablero1_sin_vista[self.disparo_jugador2_fila-1][self.disparo_jugador2_columna-1]=u"☠"
+			  	tablero1[self.disparo_jugador2_fila-1][self.disparo_jugador2_columna-1]=u"#"
+			  	tablero1_sin_vista[self.disparo_jugador2_fila-1][self.disparo_jugador2_columna-1]=u"#"
 
 			  	print u""
 			  	total_jugador2_multiplayer=total_jugador2_multiplayer+1
+#************************ DISPARO FALLIDO JUGADOR DOS MULTPLAYER ************************************************
 			else:
 			   	print u"    \t\t\t\t\t\tVAYA.. estuvimos bastante cerca pero no hemos logrado impactar..!!"
-			   	tablero1[self.disparo_jugador2_fila-1][self.disparo_jugador2_columna-1]=u"※"
-			   	tablero1_sin_vista[self.disparo_jugador2_fila-1][self.disparo_jugador2_columna-1]=u"※"
+			   	tablero1[self.disparo_jugador2_fila-1][self.disparo_jugador2_columna-1]=u"*"
+			   	tablero1_sin_vista[self.disparo_jugador2_fila-1][self.disparo_jugador2_columna-1]=u"*"
 			   
 			
 			print u"\t\t\tt***************************** VIDAS RESTANTES %s *******************************"%(vidas)
 			self.pausa4=raw_input(u"")
-			os.system("clear")
-		
+			os.system("cls")
+#************************************************************************************************************************
+#************************ VALIDACION GANADOR MUTILPLAYER ************************************************		
+#************************ GANADOR UNO MULTIPLAYER ************************************************************
 		if total_jugador1_multiplayer>total_jugador2_multiplayer:
 			print u""" 
 						 ██████╗  █████╗ ███╗   ██╗ █████╗ ██████╗  ██████╗ ██████╗     
@@ -1139,10 +1171,11 @@ class dos_jugadores(object):
 					 _.-` ``--..  ..    _.-` ``--..  .. .._ _. __ __ _ __ ..--.._ / .( _..``
 					"""
 			pausa=raw_input("")
-			os.system("clear")
+			os.system("cls")
 			nombre_jugador_1()
 			print_tablero_jugador1()
-
+#************************************************************************************************************			
+#************************ GANADOR DOS MULTIPLAYER ************************************************************
 		elif total_jugador1_multiplayer<total_jugador2_multiplayer:
 			print u""" 
 						 ██████╗  █████╗ ███╗   ██╗ █████╗ ██████╗  ██████╗ ██████╗     
@@ -1181,9 +1214,11 @@ class dos_jugadores(object):
 						          ~~~   ~~~   ~~~   ~~~
 						"""
 			pausa=raw_input("")
-			os.system("clear")
+			os.system("cls")
 			nombre_jugador_2()
 			print_tablero_jugador2()
+#************************************************************************************************************************************************
+#************************ EMPATE MULTPLAYER ************************************************************************************ 			
 		else:
 			print u"""
 	██╗  ██╗ █████╗     ███████╗██╗██████╗  ██████╗     ██╗   ██╗███╗   ██╗    ███████╗███╗   ███╗██████╗  █████╗ ████████╗███████╗
@@ -1226,7 +1261,6 @@ class dos_jugadores(object):
 
 print u""
 print u"""\t\t\t\t 
-
 			                                     |====|              `..
 			                                      \__/               (  )
 			                     ( )               ||          _      ||
@@ -1265,11 +1299,11 @@ print u"       \t\tantes de que hundan la tuya y lo harás adivinando la hubicac
 print u"           \t\t     los cuales se encontrar ocultos en un tablero de 10X10 cuadros"
 print u""
 pausa=raw_input(u"")
-os.system("clear")
+os.system("cls")
 #*******************************************************************************************************
 validar_menu=True
 while validar_menu==True:
-	#********* LISTAS VACIAS PARA TABLEROS ******************************
+#********* LISTAS VACIAS PARA TABLEROS ******************************************************
 	tablero1=[]
 	tablero1_sin_vista=[]
 	tablero2=[]
@@ -1277,27 +1311,28 @@ while validar_menu==True:
 	tableropc=[]
 	tableropc_sin_vista=[]
 	validar_menu=True
-	#********************************************************************
-	#********* COLOCACION DE u"≈" EN TABLEROS ****************************
+#********************************************************************************************
+#********* COLOCACION DE u"-" EN TABLEROS ****************************************************
 	for x in range(0,10):
-	    tablero1.append([u"≈"] * 10)
+	    tablero1.append([u"-"] * 10)
 	for x in range(0,10):
-	    tablero1_sin_vista.append([u"≈"] * 10)
+	    tablero1_sin_vista.append([u"-"] * 10)
 	for x in range(0,10):
-	    tablero2.append([u"≈"] * 10)
+	    tablero2.append([u"-"] * 10)
 	for x in range(0,10):
-	    tablero2_sin_vista.append([u"≈"] * 10)
+	    tablero2_sin_vista.append([u"-"] * 10)
 	for x in range(0,10):
-	    tableropc.append([u"≈"] * 10)
+	    tableropc.append([u"-"] * 10)
 	for x in range(0,10):
-	    tableropc_sin_vista.append([u"≈"] * 10)
+	    tableropc_sin_vista.append([u"-"] * 10)
 
-#********************************************************************
+#********************************************************************************************************
+#************************************************************************************************************
 	jugador_pc()
 	jugador_dos()
 	jugador_uno()
 	try:
-		os.system("clear")
+		os.system("cls")
 		print u"\t\t\t\t\t███╗   ███╗███████╗███╗   ██╗██╗   ██╗"
 		print u"\t\t\t\t\t████╗ ████║██╔════╝████╗  ██║██║   ██║"
 		print u"\t\t\t\t\t██╔████╔██║█████╗  ██╔██╗ ██║██║   ██║"
@@ -1306,9 +1341,10 @@ while validar_menu==True:
 		print u"\t\t\t\t\t╚═╝     ╚═╝╚══════╝╚═╝  ╚═══╝ ╚═════╝"
 		print u""
 		print u"\t\t\t\t\tJUGADORES"
-		print u"\t\t\t\t\t1) Un jugador    presione (.1.): "
-		print u"\t\t\t\t\t2) Dos jugadores presione (.2.): "
-		print u"\t\t\t\t\t3) salir					(.3.): "
+		print u"\t\t\t\t\t1) Un Jugador    Presione              (.1.): "
+		print u"\t\t\t\t\t2) Dos Jugadores Modo Visible Presione (.2.): "
+		print u"\t\t\t\t\t3) Dos Jugadores Modo Oculto  Presione (.3.): "
+		print u"\t\t\t\t\t4) Salir	                       (.4.): "
 		opcion_jugadores=int(raw_input( u"\t\t\t\t\t   Elija la opcion?: "))
 		#if opcion_jugadores.isalpha()==False:
 		
@@ -1359,16 +1395,14 @@ while validar_menu==True:
 						validacion_volver=True
 				except:
 					print "\t\t\t\t\t\tDato no valido"
-		
+		elif opcion_jugadores==4:
+			break
 
 
 
 		else:
-			os.system("clear")
-# Avenged Sevenfold
-#five fingers
-#https://www.youtube.com/watch?v=o_l4Ab5FRwM&list=RDzIWeIChes5k
-#http://www.msnanimal.cl/creador-de-nicks-ascii-msn.html
+			os.system("cls")
+
 			print u"\t\t\t\t\t███╗   ███╗███████╗███╗   ██╗██╗   ██╗"
 			print u"\t\t\t\t\t████╗ ████║██╔════╝████╗  ██║██║   ██║"
 			print u"\t\t\t\t\t██╔████╔██║█████╗  ██╔██╗ ██║██║   ██║"
@@ -1377,15 +1411,16 @@ while validar_menu==True:
 			print u"\t\t\t\t\t╚═╝     ╚═╝╚══════╝╚═╝  ╚═══╝ ╚═════╝"
 			print u""
 			print u"\t\t\t\t\tJUGADORES"
-			print u"\t\t\t\t\t1) Un jugador    presione (.1.): "
-			print u"\t\t\t\t\t2) Dos jugadores presione (.2.): "
-			print u"\t\t\t\t\t   Dato no valido"
-#-*************** AQUI
-#*******
-		
+			print u"\t\t\t\t\t1) Un Jugador    Presione              (.1.): "
+			print u"\t\t\t\t\t2) Dos Jugadores Modo Visible Presione (.2.): "
+			print u"\t\t\t\t\t3) Dos Jugadores Modo Oculto  Presione (.3.): "
+			print u"\t\t\t\t\t4) Salir	                       (.4.): "
+			
+			pausa=raw_input(u"\t\t\t\t\t   Dato no valido")
+
 		
 	except ValueError:
-		os.system("clear")
+		os.system("cls")
 		print u"\t\t\t\t\t███╗   ███╗███████╗███╗   ██╗██╗   ██╗"
 		print u"\t\t\t\t\t████╗ ████║██╔════╝████╗  ██║██║   ██║"
 		print u"\t\t\t\t\t██╔████╔██║█████╗  ██╔██╗ ██║██║   ██║"
@@ -1394,11 +1429,14 @@ while validar_menu==True:
 		print u"\t\t\t\t\t╚═╝     ╚═╝╚══════╝╚═╝  ╚═══╝ ╚═════╝"
 		print u""
 		print u"\t\t\t\t\tJUGADORES"
-		print u"\t\t\t\t\t1) Un jugador    presione (.1.): "
-		print u"\t\t\t\t\t2) Dos jugadores presione (.2.): "
-		print u"\t\t\t\t\t   No se pueden ingresar letras"
-#***********************************************************************************************
-os.system("clear")
+		print u"\t\t\t\t\t1) Un Jugador    Presione              (.1.): "
+		print u"\t\t\t\t\t2) Dos Jugadores Modo Visible Presione (.2.): "
+		print u"\t\t\t\t\t3) Dos Jugadores Modo Oculto  Presione (.3.): "
+		print u"\t\t\t\t\t4) Salir	                       (.4.): "
+		pausa=raw_input (u"\t\t\t\t\t   No se pueden ingresar letras")
+#************************************************************************************************************
+#*********************************************************************************************************************
+os.system("cls")
 print u""
 print u""
 print u"\t\t███████╗██╗███╗   ██╗    ██████╗ ███████╗██╗              ██╗██╗   ██╗███████╗ ██████╗  ██████╗ "
@@ -1434,7 +1472,15 @@ print u"""
 				 .`-.```-._ ``-..__``.- `.      _     -  _  _  _ -    _-   _  __/(.``-._
 				 _.-` ``--..  ..    _.-` ``--..  .. .._ _. __ __ _ __ ..--.._ / .( _..``
 				"""
+#*********************************************************************************************************************
+#*********************************************************************************************************************
+#*********************************************************************************************************************
+#*********************************************************************************************************************
 #halestorm
+# Avenged Sevenfold
+#five fingers
+#https://www.youtube.com/watch?v=o_l4Ab5FRwM&list=RDzIWeIChes5k
+#http://www.msnanimal.cl/creador-de-nicks-ascii-msn.html
 # Avenged Sevenfold
 #five fingers
 #https://www.youtube.com/watch?v=o_l4Ab5FRwM&list=RDzIWeIChes5k
