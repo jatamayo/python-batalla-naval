@@ -9,6 +9,25 @@ import random
 def oculto1():
 	print""
 
+def musica():
+	try:
+		import pygame
+		pygame.init()
+		pygame.display.set_mode((1,1))
+		pygame.mixer.music.load("musica.mp3")
+		pygame.mixer.music.play()
+	except ImportError:
+		"No se Encontro Libreria"
+def disparo():
+	try:
+		import pygame
+		pygame.init()
+		pygame.display.set_mode((1,1))
+		pygame.mixer.music.load("disparo.mp3")
+		pygame.mixer.music.play()
+	except ImportError:
+		"No se Encontro Libreria"
+
 
 def print_tablero_jugador1():
     print u"\t\t\t\t\t      ******   OCEANO JUGADOR UNO   ******"
@@ -570,7 +589,7 @@ def inicio():
 	print u"\t\t\t\t\tEXELENTE, BIENVENIDO (%s) "%(nombre_jugador1)
 	print u"\t\t\t\t\tPORFAVOR ESPERE UNOS SEGUNDO MIENTRAS COLOCAMOS TU FLOTA:"
 	time.sleep(1)
-	os.system("cls")
+	os.system("clear")
 	print u"\t\t███████╗██╗      ██████╗ ████████╗ █████╗      █████╗ ██╗     ██╗ █████╗ ██████╗  █████╗ "
 	print u"\t\t██╔════╝██║     ██╔═══██╗╚══██╔══╝██╔══██╗    ██╔══██╗██║     ██║██╔══██╗██╔══██╗██╔══██╗"
 	print u"\t\t█████╗  ██║     ██║   ██║   ██║   ███████║    ███████║██║     ██║███████║██║  ██║███████║"
@@ -604,7 +623,7 @@ class un_jugador(object):
 	def single_player(self):
 		inicio()
 		self.pausa2=raw_input(u"\t\t\t\tAHORA ESTAMOS LISTOS PARA LA BATALLA, VAMOS POR ELLOS: ")
-		os.system("cls")
+		os.system("clear")
 #*******************************************************************************************************************************
 #************************************** TURNOS JUGADOR UNO *********************************************************************
 		total_pc=0
@@ -629,7 +648,7 @@ class un_jugador(object):
 							print "\t\t\t\t\t\tEsto esta fuera del oceano"
 							print "\t\t\t\t\t\tSeria mejor si lo vuelves a intentar"
 							self.pase6=raw_input("")
-							os.system("cls")
+							os.system("clear")
 							nombre_jugador_1()
 							print_tablero_jugador1()
 							print u""
@@ -642,7 +661,7 @@ class un_jugador(object):
 						print "\t\t\t\t\t\tAs ingresado letras"		
 						print "\t\t\t\t\t\tSeria mejor si lo vuelves a intentar"
 						self.pause5=raw_input("")
-						os.system("cls")
+						os.system("clear")
 						nombre_jugador_1()
 						print_tablero_jugador1()
 						print u""
@@ -657,7 +676,7 @@ class un_jugador(object):
 							print "\t\t\t\t\t\tEsto esta fuera del oceano"
 							print "\t\t\t\t\t\tSeria mejor si lo vuelves a intentar"
 							pase6=raw_input("")
-							os.system("cls")
+							os.system("clear")
 							nombre_jugador_1()
 							print_tablero_jugador1()
 							print u""
@@ -671,7 +690,7 @@ class un_jugador(object):
 						print "\t\t\t\t\t\tAs ingresado letras"		
 						print "\t\t\t\t\t\tSeria mejor si lo vuelves a intentar"
 						pause5=raw_input("")
-						os.system("cls")
+						os.system("clear")
 						nombre_jugador_1()
 						print_tablero_jugador1()
 						print u""
@@ -684,7 +703,7 @@ class un_jugador(object):
 					print u"    \t\t\t\t\t\tVAYA CAPITAN YA HEMOS DISPARADO EN ESTA POSICION"
 					print u"    \t\t\t\t\t\tSeria mejor si lo vuelve a intentar"
 					pausa7=raw_input("")
-					os.system("cls")
+					os.system("clear")
 					disparo_repetido=True
 				else:
 					disparo_repetido=False
@@ -707,7 +726,7 @@ class un_jugador(object):
 			vidas=vidas-1
 			print u"\t\t\tt***************************** VIDAS RESTANTES %s *******************************"%(vidas)
 			pausa4=raw_input(u"")
-			os.system("cls")
+			os.system("clear")
 			
 #************************************************************************************************************************************
 #******************************************************************************************************************************
@@ -738,7 +757,7 @@ class un_jugador(object):
 			print u"\t\t\tt***************************** VIDAS RESTANTES %s *******************************"%(vidas)
 			
 			pausa4=raw_input(u"")
-			os.system("cls")
+			os.system("clear")
 #************************************************************************************************************************
 #************************ RESULTADOS SINGLE PLAYER ************************************************************
 #************************ GANADOR JUGADOR UNO ************************************************************************
@@ -850,7 +869,8 @@ def perdedor():
 #************************ INICIO FUNCION MULTIPLAYER ************************************************************************		
 class dos_jugadores(object):
 	def multiplayer(self):
-		os.system("cls")
+		musica()
+		os.system("clear")
 		print u"\t\t███╗   ███╗██╗   ██╗██╗  ████████╗██╗     ██╗██╗   ██╗ ██████╗  █████╗ ██████╗  ██████╗ ██████╗ "
 		print u"\t\t████╗ ████║██║   ██║██║  ╚══██╔══╝██║     ██║██║   ██║██╔════╝ ██╔══██╗██╔══██╗██╔═══██╗██╔══██╗"
 		print u"\t\t██╔████╔██║██║   ██║██║     ██║   ██║     ██║██║   ██║██║  ███╗███████║██║  ██║██║   ██║██████╔╝"
@@ -887,7 +907,7 @@ class dos_jugadores(object):
 #********************************************************************************************************
 #********************************************************************************************************************
 #********************************** INGRESO DE NOMBRES MULTIJUGADOR *************************************************
-		os.system("cls")
+		os.system("clear")
 		print u"\t\t███╗   ███╗██╗   ██╗██╗  ████████╗██╗     ██╗██╗   ██╗ ██████╗  █████╗ ██████╗  ██████╗ ██████╗ "
 		print u"\t\t████╗ ████║██║   ██║██║  ╚══██╔══╝██║     ██║██║   ██║██╔════╝ ██╔══██╗██╔══██╗██╔═══██╗██╔══██╗"
 		print u"\t\t██╔████╔██║██║   ██║██║     ██║   ██║     ██║██║   ██║██║  ███╗███████║██║  ██║██║   ██║██████╔╝"
@@ -904,11 +924,11 @@ class dos_jugadores(object):
 		print u"\t\t\t\t\t\tExcelente bienvenido %s"%(multijugador2_nombre)
 		print u""
 		self.pause7=raw_input("")
-		os.system("cls")
+		os.system("clear")
 #*******************************************************************************************************************************
 #************************************** TURNOS JUGADOR UNO *********************************************************************
 #************************************ VIDAS ************************************************************************
-		vidas=2
+		vidas=8
 #************************************************************************************************************************		
 		total_jugador1_multiplayer=0
 		total_jugador2_multiplayer=0
@@ -933,7 +953,7 @@ class dos_jugadores(object):
 							print "\t\t\t\t\t\tEsto esta fuera del oceano"
 							print "\t\t\t\t\t\tSeria mejor si lo vuelves a intentar"
 							pase6=raw_input("")
-							os.system("cls")
+							os.system("clear")
 							nombre_jugador_1()
 							print u"\t\t\t\t\t        ******    OCEANO JUGADOR %s   ******"%(multijugador1_nombre)
 							print_tablero_jugador1()
@@ -949,7 +969,7 @@ class dos_jugadores(object):
 						print "\t\t\t\t\t\tAs ingresado letras"		
 						print "\t\t\t\t\t\tSeria mejor si lo vuelves a intentar"
 						self.pause5=raw_input("")
-						os.system("cls")
+						os.system("clear")
 						nombre_jugador_1()
 						print u"\t\t\t\t\t        ******    OCEANO JUGADOR %s   ******"%(multijugador1_nombre)
 						print_tablero_jugador1()
@@ -967,7 +987,7 @@ class dos_jugadores(object):
 							print "\t\t\t\t\t\tEsto esta fuera del oceano"
 							print "\t\t\t\t\t\tSeria mejor si lo vuelves a intentar"
 							self.pase6=raw_input("")
-							os.system("cls")
+							os.system("clear")
 							nombre_jugador_1()
 							print u"\t\t\t\t\t        ******    OCEANO JUGADOR %s   ******"%(multijugador1_nombre)
 							print_tablero_jugador1()
@@ -982,7 +1002,7 @@ class dos_jugadores(object):
 						print "\t\t\t\t\t\tAs ingresado letras"		
 						print "\t\t\t\t\t\tAeria mejor si lo vuelves a intentar"
 						self.pause5=raw_input("")
-						os.system("cls")
+						os.system("clear")
 						nombre_jugador_1()
 						print u"\t\t\t\t\t        ******    OCEANO JUGADOR %s   ******"%(multijugador1_nombre)
 						print_tablero_jugador1()
@@ -997,7 +1017,7 @@ class dos_jugadores(object):
 					print u"    \t\t\t\t\t\tVAYA CAPITAN YA HEMOS DISPARADO EN ESTA POSICION"
 					print u"    \t\t\t\t\t\tSeria mejor si lo vuelve a intentar"
 					pausa7=raw_input("")
-					os.system("cls")
+					os.system("clear")
 					disparo_repetido=True
 				else:
 					disparo_repetido=False
@@ -1006,8 +1026,15 @@ class dos_jugadores(object):
 			if validar==u"O":
 				tablero2[self.disparo_jugador1_fila-1][self.disparo_jugador1_columna-1]=u"#"
 				tablero2_sin_vista[self.disparo_jugador1_fila-1][self.disparo_jugador1_columna-1]=u"#"
+				
+				disparo()
+				
+			
+				
 				print u"    \t\t\t\t\t\tEXELENTE CAPITAN... Hemos impactado el barco enemigo...!!"
 			  	print u""
+			  	time.sleep(3)
+			  	
 			  	total_jugador1_multiplayer=total_jugador1_multiplayer+1
 #************************ DISPARO FALLIDO JUGADOR UNO MULTIPLAYER			  	
 			else:
@@ -1018,7 +1045,8 @@ class dos_jugadores(object):
 			vidas=vidas-1
 			print u"\t\t\tt***************************** VIDAS RESTANTES %s *******************************"%(vidas)
 			self.pausa4=raw_input(u"")
-			os.system("cls")
+			os.system("clear")
+			musica()
 			
 
 #******************************************************************************************************************************
@@ -1045,7 +1073,7 @@ class dos_jugadores(object):
 							print "\t\t\t\t\t\tEsto esta fuera del oceano"
 							print "\t\t\t\t\t\tSeria mejor si lo vuelves a intentar"
 							self.pase6=raw_input("")
-							os.system("cls")
+							os.system("clear")
 							nombre_jugador_2()
 							print u"\t\t\t\t\t        ******    OCEANO JUGADOR %s   ******"%(multijugador2_nombre)
 							print_tablero_jugador2()
@@ -1061,7 +1089,7 @@ class dos_jugadores(object):
 						print "\t\t\t\t\t\tSeria mejor si lo vuelves a intentar"
 						
 						self.pause5=raw_input("")
-						os.system("cls")
+						os.system("clear")
 						nombre_jugador_2()
 						print u"\t\t\t\t\t        ******    OCEANO JUGADOR %s   ******"%(multijugador2_nombre)
 						print_tablero_jugador2()
@@ -1078,7 +1106,7 @@ class dos_jugadores(object):
 							print "\t\t\t\t\t\tEsto esta fuera del oceano"
 							print "\t\t\t\t\t\tSeria mejor si lo vuelves a intentar"
 							pase6=raw_input("")
-							os.system("cls")
+							os.system("clear")
 							nombre_jugador_2()
 							print u"\t\t\t\t\t        ******    OCEANO JUGADOR %s   ******"%(multijugador2_nombre)
 							print_tablero_jugador2()
@@ -1093,7 +1121,7 @@ class dos_jugadores(object):
 						print "\t\t\t\t\t\tAs ingresado letras"		
 						print "\t\t\t\t\t\tSeria mejor si lo vuelves a intentar"
 						self.pause5=raw_input("")
-						os.system("cls")
+						os.system("clear")
 						nombre_jugador_2()
 						print u"\t\t\t\t\t        ******    OCEANO JUGADOR %s   ******"%(multijugador2_nombre)
 						print_tablero_jugador2()
@@ -1108,14 +1136,22 @@ class dos_jugadores(object):
 					print u"    \t\t\t\t\t\tVAYA CAPITAN YA HEMOS DISPARADO EN ESTA POSICION"
 					print u"    \t\t\t\t\t\tSeria mejor si lo vuelve a intentar"
 					pausa7=raw_input("")
-					os.system("cls")
+					os.system("clear")
 					disparo_repetido=True
 				else:
 					disparo_repetido=False
 #*******************************DISPARO ACERTADO JUGADOR DOS MULTIPLAYER*********************************************
 			validar=tablero1[self.disparo_jugador2_fila-1][self.disparo_jugador2_columna-1]
 			if validar==u"O":
+				
+				disparo()
+				
+			
+				
 				print u"    \t\t\t\t\t\tEXELENTE CAPITAN... Hemos impactado el barco enemigo...!!"
+			  	print u""
+			  	time.sleep(3)
+			  
 			  	tablero1[self.disparo_jugador2_fila-1][self.disparo_jugador2_columna-1]=u"#"
 			  	tablero1_sin_vista[self.disparo_jugador2_fila-1][self.disparo_jugador2_columna-1]=u"#"
 
@@ -1130,7 +1166,8 @@ class dos_jugadores(object):
 			
 			print u"\t\t\tt***************************** VIDAS RESTANTES %s *******************************"%(vidas)
 			self.pausa4=raw_input(u"")
-			os.system("cls")
+			os.system("clear")
+			musica()
 #************************************************************************************************************************
 #************************ VALIDACION GANADOR MUTILPLAYER ************************************************		
 #************************ GANADOR UNO MULTIPLAYER ************************************************************
@@ -1171,7 +1208,7 @@ class dos_jugadores(object):
 					 _.-` ``--..  ..    _.-` ``--..  .. .._ _. __ __ _ __ ..--.._ / .( _..``
 					"""
 			pausa=raw_input("")
-			os.system("cls")
+			os.system("clear")
 			nombre_jugador_1()
 			print_tablero_jugador1()
 #************************************************************************************************************			
@@ -1214,7 +1251,7 @@ class dos_jugadores(object):
 						          ~~~   ~~~   ~~~   ~~~
 						"""
 			pausa=raw_input("")
-			os.system("cls")
+			os.system("clear")
 			nombre_jugador_2()
 			print_tablero_jugador2()
 #************************************************************************************************************************************************
@@ -1254,6 +1291,414 @@ class dos_jugadores(object):
 					 .`-.```-._ ``-..__``.- `.      _     -  _  _  _ -    _-   _  __/(.``-._
 					 _.-` ``--..  ..    _.-` ``--..  .. .._ _. __ __ _ __ ..--.._ / .( _..``
 					"""
+
+class dos_jugadores_oculto(object):
+	def multiplayer_oculto(self):
+		os.system("clear")
+		print u"\t\t███╗   ███╗██╗   ██╗██╗  ████████╗██╗     ██╗██╗   ██╗ ██████╗  █████╗ ██████╗  ██████╗ ██████╗ "
+		print u"\t\t████╗ ████║██║   ██║██║  ╚══██╔══╝██║     ██║██║   ██║██╔════╝ ██╔══██╗██╔══██╗██╔═══██╗██╔══██╗"
+		print u"\t\t██╔████╔██║██║   ██║██║     ██║   ██║     ██║██║   ██║██║  ███╗███████║██║  ██║██║   ██║██████╔╝"
+		print u"\t\t██║╚██╔╝██║██║   ██║██║     ██║   ██║██   ██║██║   ██║██║   ██║██╔══██║██║  ██║██║   ██║██╔══██╗"
+		print u"\t\t██║ ╚═╝ ██║╚██████╔╝███████╗██║   ██║╚█████╔╝╚██████╔╝╚██████╔╝██║  ██║██████╔╝╚██████╔╝██║  ██║"
+		print u"\t\t╚═╝     ╚═╝ ╚═════╝ ╚══════╝╚═╝   ╚═╝ ╚════╝  ╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚═════╝  ╚═════╝ ╚═╝  ╚═╝"
+		print u""
+		print u"\t\t\t\t               ()"
+		print u"\t\t\t\t                    ||q',,'"
+		print u"\t\t\t\t                    ||d,~"
+		print u"\t\t\t\t         (,---------------------,)"
+		print u"\t\t\t\t          ',       q888p       ,'"
+		print u"\t\t\t\t            \       986       /"
+		print u"\t\t\t\t             \  8p, d8b ,q8  /"
+		print u"\t\t\t\t              ) 888a888a888 ("
+		print u"\t\t\t\t             /  8b` q8p `d8  \              O"
+		print u"\t\t\t\t            /       689       \             |','"
+		print u"\t\t\t\t           /       d888b       \      (,---------,)"
+		print u"\t\t\t\t         ,'_____________________',     \   ,8,   /"
+		print u"\t\t\t\t         (`__________L|_________`)      ) a888a (    _,_"
+		print u"\t\t\t\t         [___________|___________]     /___`8`___\   }*{"
+		print u"\t\t\t\t           }:::|:::::}::|::::::{      (,=========,)  -=-"
+		print u"\t\t\t\t   Samwise  '|::::}::|:::::{:|'  .,.    \:::|:::/    ~`~="
+		print u"\t\t\t\t --=~(@)~=-- '|}:::::|::{:::|'          ~""~`~"
+		print u"\t\t\t\t               '|:}::|::::|'~`~"""
+		print u"\t\t\t\t           ~`~""~`~"                 "~`~""~"
+		print u"\t\t\t\t                          ""~`~"
+		print u"\t\t-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-."
+		print u"\t\t.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-."
+		print u"\t\t\t.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-"
+		print u"\t\t\t\t.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-"
+		print u"\n\n\n"
+		pausa=raw_input("")
+#********************************************************************************************************
+#********************************************************************************************************************
+#********************************** INGRESO DE NOMBRES MULTIJUGADOR *************************************************
+		os.system("clear")
+		print u"\t\t███╗   ███╗██╗   ██╗██╗  ████████╗██╗     ██╗██╗   ██╗ ██████╗  █████╗ ██████╗  ██████╗ ██████╗ "
+		print u"\t\t████╗ ████║██║   ██║██║  ╚══██╔══╝██║     ██║██║   ██║██╔════╝ ██╔══██╗██╔══██╗██╔═══██╗██╔══██╗"
+		print u"\t\t██╔████╔██║██║   ██║██║     ██║   ██║     ██║██║   ██║██║  ███╗███████║██║  ██║██║   ██║██████╔╝"
+		print u"\t\t██║╚██╔╝██║██║   ██║██║     ██║   ██║██   ██║██║   ██║██║   ██║██╔══██║██║  ██║██║   ██║██╔══██╗"
+		print u"\t\t██║ ╚═╝ ██║╚██████╔╝███████╗██║   ██║╚█████╔╝╚██████╔╝╚██████╔╝██║  ██║██████╔╝╚██████╔╝██║  ██║"
+		print u"\t\t╚═╝     ╚═╝ ╚═════╝ ╚══════╝╚═╝   ╚═╝ ╚════╝  ╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚═════╝  ╚═════╝ ╚═╝  ╚═╝"
+		print u""
+		print u""
+		print u"\t\t\t\t\t\tBienvenido al modo multijugador"
+		multijugador1_nombre=raw_input(u"\t\t\t\t\t\tIngrese el nombre del jugador numero (.1.)?: ")
+		print u"\t\t\t\t\t\tExcelente bienvenido %s "%(multijugador1_nombre)
+		print u""
+		multijugador2_nombre=raw_input(u"\t\t\t\t\t\tIngrese el nombre del jugador numero (.2.)?: ")
+		print u"\t\t\t\t\t\tExcelente bienvenido %s"%(multijugador2_nombre)
+		print u""
+		self.pause7=raw_input("")
+		os.system("clear")
+#*******************************************************************************************************************************
+#************************************** TURNOS JUGADOR UNO *********************************************************************
+#************************************ VIDAS ************************************************************************
+		vidas=8
+#************************************************************************************************************************		
+		total_jugador1_multiplayer=0
+		total_jugador2_multiplayer=0
+		while vidas>0:
+			
+			
+			disparo_repetido=True
+			while disparo_repetido==True:
+				nombre_jugador_1()
+				print u"\t\t\t\t\t        ******    OCEANO JUGADOR %s   ******"%(multijugador1_nombre)
+				print_tablero_jugador1_sin_vista()
+				print u""
+				print u"\t\t\t\t\t        ******    OCEANO JUGADOR %s   ******"%(multijugador2_nombre)
+				print_tablero_jugador2_sin_vista2()
+				print u""
+#************************ DISPARO FILA JUGADOR UNO MULTIPLAYER ************************************************		
+				validar_disparo_jugador1_fila=True
+				while validar_disparo_jugador1_fila==True:
+					try:
+						self.disparo_jugador1_fila=int(raw_input(u"    \t\t\t\t\t\tIngrese fila: "))
+						if self.disparo_jugador1_fila>10 or self.disparo_jugador1_fila<1:
+							print "\t\t\t\t\t\tEsto esta fuera del oceano"
+							print "\t\t\t\t\t\tSeria mejor si lo vuelves a intentar"
+							pase6=raw_input("")
+							os.system("clear")
+							nombre_jugador_1()
+							print u"\t\t\t\t\t        ******    OCEANO JUGADOR %s   ******"%(multijugador1_nombre)
+							print_tablero_jugador1_sin_vista()
+							print u""
+							print u"\t\t\t\t\t        ******    OCEANO JUGADOR %s   ******"%(multijugador2_nombre)
+							print_tablero_jugador2_sin_vista2()
+							print u""
+						
+						else:
+							self.disparo_jugador1_fila=self.disparo_jugador1_fila
+							break	
+					except:
+						print "\t\t\t\t\t\tAs ingresado letras"		
+						print "\t\t\t\t\t\tSeria mejor si lo vuelves a intentar"
+						self.pause5=raw_input("")
+						os.system("clear")
+						nombre_jugador_1()
+						print u"\t\t\t\t\t        ******    OCEANO JUGADOR %s   ******"%(multijugador1_nombre)
+						print_tablero_jugador1_sin_vista()
+						print u""
+						print u"\t\t\t\t\t        ******    OCEANO JUGADOR %s   ******"%(multijugador2_nombre)
+						print_tablero_jugador2_sin_vista2()
+						print u""
+#************************ DISPARO COLUMNA JUGADOR UNO MULTIPLAYER ************************************************
+				
+				validar_disparo_jugador1_columna=True
+				while validar_disparo_jugador1_columna==True:
+					try:
+						self.disparo_jugador1_columna=int(raw_input(u"    \t\t\t\t\t\tIngrese columna: "))
+						if self.disparo_jugador1_columna>10 or self.disparo_jugador1_columna<1:
+							print "\t\t\t\t\t\tEsto esta fuera del oceano"
+							print "\t\t\t\t\t\tSeria mejor si lo vuelves a intentar"
+							self.pase6=raw_input("")
+							os.system("clear")
+							nombre_jugador_1()
+							print u"\t\t\t\t\t        ******    OCEANO JUGADOR %s   ******"%(multijugador1_nombre)
+							print_tablero_jugador1_sin_vista()
+							print ""
+							print u"\t\t\t\t\t        ******    OCEANO JUGADOR %s   ******"%(multijugador2_nombre)
+							print_tablero_jugador2_sin_vista2()
+							print u"    \t\t\t\t\t\tIngrese fila: %s"%(self.disparo_jugador1_fila)
+						else:
+							self.disparo_jugador1_columna=self.disparo_jugador1_columna
+							break	
+					except:
+						print "\t\t\t\t\t\tAs ingresado letras"		
+						print "\t\t\t\t\t\tAeria mejor si lo vuelves a intentar"
+						self.pause5=raw_input("")
+						os.system("clear")
+						nombre_jugador_1()
+						print u"\t\t\t\t\t        ******    OCEANO JUGADOR %s   ******"%(multijugador1_nombre)
+						print_tablero_jugador1_sin_vista()
+						print ""
+						print u"\t\t\t\t\t        ******    OCEANO JUGADOR %s   ******"%(multijugador2_nombre)
+						print_tablero_jugador2_sin_vista2()
+						print u"    \t\t\t\t\t\tIngrese fila: %s"%(self.disparo_jugador1_fila)
+								
+#******************************DISPARO REPETIDO JUGADOR UNO MULTIPLAYER*************************************************
+				validar_disparo=tablero2[self.disparo_jugador1_fila-1][self.disparo_jugador1_columna-1]
+				if validar_disparo==u"#" or validar_disparo==u"*":
+					print u"    \t\t\t\t\t\tVAYA CAPITAN YA HEMOS DISPARADO EN ESTA POSICION"
+					print u"    \t\t\t\t\t\tSeria mejor si lo vuelve a intentar"
+					pausa7=raw_input("")
+					os.system("clear")
+					disparo_repetido=True
+				else:
+					disparo_repetido=False
+#****************************DISPARO ACERTADO JUGADOR UNO MULTIPLAYER*************************************************************
+			validar=tablero2[self.disparo_jugador1_fila-1][self.disparo_jugador1_columna-1]
+			if validar==u"O":
+				tablero2[self.disparo_jugador1_fila-1][self.disparo_jugador1_columna-1]=u"#"
+				tablero2_sin_vista[self.disparo_jugador1_fila-1][self.disparo_jugador1_columna-1]=u"#"
+				print u"    \t\t\t\t\t\tEXELENTE CAPITAN... Hemos impactado el barco enemigo...!!"
+			  	print u""
+			  	total_jugador1_multiplayer=total_jugador1_multiplayer+1
+#************************ DISPARO FALLIDO JUGADOR UNO MULTIPLAYER			  	
+			else:
+			   	print u"    \t\t\t\t\t\tVAYA.. estuvimos bastante cerca pero no hemos logrado impactar..!!"
+			   	tablero2[self.disparo_jugador1_fila-1][self.disparo_jugador1_columna-1]=u"*"
+				tablero2_sin_vista[self.disparo_jugador1_fila-1][self.disparo_jugador1_columna-1]=u"*"
+			   	
+			vidas=vidas-1
+			print u"\t\t\tt***************************** VIDAS RESTANTES %s *******************************"%(vidas)
+			self.pausa4=raw_input(u"")
+			os.system("clear")
+			
+
+#******************************************************************************************************************************
+#************************************ TURNOS JUGADOR DOS ******************************************************************************
+			#total_jugador2_multiplayer=0
+			
+			
+			disparo_repetido=True
+			while disparo_repetido==True:
+				nombre_jugador_2()
+				print u"\t\t\t\t\t        ******    OCEANO JUGADOR %s   ******"%(multijugador2_nombre)
+				print_tablero_jugador2_sin_vista()
+				print u""
+				print u"\t\t\t\t\t        ******    OCEANO JUGADOR %s   ******"%(multijugador1_nombre)
+				print_tablero_jugador1_sin_vista2()
+				print u""
+
+#************************ DISPARO FILA JUGADOR DOS MULTIPLAYER ************************************************				
+				validar_disparo_jugador2_fila=True
+				while validar_disparo_jugador2_fila==True:
+					try:
+						self.disparo_jugador2_fila=int(raw_input(u"    \t\t\t\t\t\tIngrese fila: "))
+						if self.disparo_jugador2_fila>10 or self.disparo_jugador2_fila <1:
+							print "\t\t\t\t\t\tEsto esta fuera del oceano"
+							print "\t\t\t\t\t\tSeria mejor si lo vuelves a intentar"
+							self.pase6=raw_input("")
+							os.system("clear")
+							nombre_jugador_2()
+							print u"\t\t\t\t\t        ******    OCEANO JUGADOR %s   ******"%(multijugador2_nombre)
+							print_tablero_jugador2_sin_vista()
+							print u""
+							print u"\t\t\t\t\t        ******    OCEANO JUGADOR %s   ******"%(multijugador1_nombre)
+							print_tablero_jugador1_sin_vista2()
+							print u""
+						else:
+							self.disparo_jugador2_fila=self.disparo_jugador2_fila
+							break	
+					except:
+						print "\t\t\t\t\t\tAs ingresado letras"		
+						print "\t\t\t\t\t\tSeria mejor si lo vuelves a intentar"
+						
+						self.pause5=raw_input("")
+						os.system("clear")
+						nombre_jugador_2()
+						print u"\t\t\t\t\t        ******    OCEANO JUGADOR %s   ******"%(multijugador2_nombre)
+						print_tablero_jugador2_sin_vista()
+						print u""
+						print u"\t\t\t\t\t        ******    OCEANO JUGADOR %s   ******"%(multijugador1_nombre)
+						print_tablero_jugador1_sin_vista2()
+						print u""
+#****************************DISPARO COLUMNA JUGADOR DOS MULTIPLAYER***************************************
+				validar_disparo_jugador2_columna=True
+				while validar_disparo_jugador2_columna==True:
+					try:
+						self.disparo_jugador2_columna=int(raw_input(u"    \t\t\t\t\t\tIngrese columna: "))
+						if self.disparo_jugador2_columna>10 or self.disparo_jugador2_columna <1:
+							print "\t\t\t\t\t\tEsto esta fuera del oceano"
+							print "\t\t\t\t\t\tSeria mejor si lo vuelves a intentar"
+							pase6=raw_input("")
+							os.system("clear")
+							nombre_jugador_2()
+							print u"\t\t\t\t\t        ******    OCEANO JUGADOR %s   ******"%(multijugador2_nombre)
+							print_tablero_jugador2_sin_vista()
+							print u""
+							print u"\t\t\t\t\t        ******    OCEANO JUGADOR %s   ******"%(multijugador1_nombre)
+							print_tablero_jugador1_sin_vista2()
+							print u"    \t\t\t\t\t\tIngrese fila: %s"%(self.disparo_jugador2_fila)
+						else:
+							self.disparo_jugador2_columna=self.disparo_jugador2_columna
+							break
+					except:
+						print "\t\t\t\t\t\tAs ingresado letras"		
+						print "\t\t\t\t\t\tSeria mejor si lo vuelves a intentar"
+						self.pause5=raw_input("")
+						os.system("clear")
+						nombre_jugador_2()
+						print u"\t\t\t\t\t        ******    OCEANO JUGADOR %s   ******"%(multijugador2_nombre)
+						print_tablero_jugador2_sin_vista()
+						print u""
+						print u"\t\t\t\t\t        ******    OCEANO JUGADOR %s   ******"%(multijugador1_nombre)
+						print_tablero_jugador1_sin_vista2()
+						print u"    \t\t\t\t\t\tIngrese fila: %s"%(self.disparo_jugador2_fila)
+								
+#******************************DISPARO REPETIDO JUGADOR DOS MULTIPLAYER**************************************************
+				validar_disparo=tablero1[self.disparo_jugador2_fila-1][self.disparo_jugador2_columna-1]
+				if validar_disparo==u"#" or validar_disparo==u"*":
+					print u"    \t\t\t\t\t\tVAYA CAPITAN YA HEMOS DISPARADO EN ESTA POSICION"
+					print u"    \t\t\t\t\t\tSeria mejor si lo vuelve a intentar"
+					pausa7=raw_input("")
+					os.system("clear")
+					disparo_repetido=True
+				else:
+					disparo_repetido=False
+#*******************************DISPARO ACERTADO JUGADOR DOS MULTIPLAYER*********************************************
+			validar=tablero1[self.disparo_jugador2_fila-1][self.disparo_jugador2_columna-1]
+			if validar==u"O":
+				print u"    \t\t\t\t\t\tEXELENTE CAPITAN... Hemos impactado el barco enemigo...!!"
+			  	tablero1[self.disparo_jugador2_fila-1][self.disparo_jugador2_columna-1]=u"#"
+			  	tablero1_sin_vista[self.disparo_jugador2_fila-1][self.disparo_jugador2_columna-1]=u"#"
+
+			  	print u""
+			  	total_jugador2_multiplayer=total_jugador2_multiplayer+1
+#************************ DISPARO FALLIDO JUGADOR DOS MULTPLAYER ************************************************
+			else:
+			   	print u"    \t\t\t\t\t\tVAYA.. estuvimos bastante cerca pero no hemos logrado impactar..!!"
+			   	tablero1[self.disparo_jugador2_fila-1][self.disparo_jugador2_columna-1]=u"*"
+			   	tablero1_sin_vista[self.disparo_jugador2_fila-1][self.disparo_jugador2_columna-1]=u"*"
+			   
+			
+			print u"\t\t\tt***************************** VIDAS RESTANTES %s *******************************"%(vidas)
+			self.pausa4=raw_input(u"")
+			os.system("clear")
+#************************************************************************************************************************
+#************************ VALIDACION GANADOR MUTILPLAYER ************************************************		
+#************************ GANADOR UNO MULTIPLAYER ************************************************************
+		if total_jugador1_multiplayer>total_jugador2_multiplayer:
+			print u""" 
+						 ██████╗  █████╗ ███╗   ██╗ █████╗ ██████╗  ██████╗ ██████╗     
+						██╔════╝ ██╔══██╗████╗  ██║██╔══██╗██╔══██╗██╔═══██╗██╔══██╗    
+						██║  ███╗███████║██╔██╗ ██║███████║██║  ██║██║   ██║██████╔╝    
+						██║   ██║██╔══██║██║╚██╗██║██╔══██║██║  ██║██║   ██║██╔══██╗    
+						╚██████╔╝██║  ██║██║ ╚████║██║  ██║██████╔╝╚██████╔╝██║  ██║    
+						 ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝╚═════╝  ╚═════╝ ╚═╝  ╚═╝"""
+			nombre_jugador_1()
+			print u"""
+					                       .'             \__/               (  )
+					                     ( )               ||          _      ||
+					                     /|\               ||       .-` \     ||
+					                   .' | '              ||   _.-'    |     ||
+					                  /   |\ \             || .'   `.__.'     ||   _.-..
+					                .'   /| `.            _.-'   _.-'       _.-.`-'`._`.`
+					                \  .' |  |        .-.`    `./      _.-`.    `._.-'
+					                 |.   |  `.   _.-'   `.   .'     .'  `._.`---`
+					                .'    |   |  :   `._..-'.'        `._..'  ||
+					               /      |   \  `-._.'    ||                 ||
+					              |     .'|`.  |           ||_.--.-._         ||
+					              '    /  |  \ \       __.--'\    `. :        ||
+					               \  .'  |   \|   ..-'   \   `._-._.'        ||
+					`.._            |/    |    `.  \  \    `._.-              ||
+					    `-.._       /     |      \  `-.'_.--'                 ||
+					         `-.._.'      |      |        | |         _ _ _  _'_ _ _ _ _
+					              `-.._   |      \        | |        |_|_|_'|_|_|_|_|_|_|
+					                  [`--^-..._.'        | |       /....../|  __   __  |
+					                   \`---.._|`--.._    | |      /....../ | |__| |__| |
+					                    \__  _ `-.._| `-._|_|_ _ _/_ _ _ /  | |__| |__| |
+					                     \   _o_   _`-._|_|_|_|_|_|_|_|_/   '-----------/
+					                      \_`.|.'  _  - .--.--.--.--.--.`--------------'
+					      .```-._ ``-.._   \__   _    _ '--'--'--'--'--'  - _ - _  __/
+					 .`-.```-._ ``-..__``.- `.      _     -  _  _  _ -    _-   _  __/(.``-._
+					 _.-` ``--..  ..    _.-` ``--..  .. .._ _. __ __ _ __ ..--.._ / .( _..``
+					"""
+			pausa=raw_input("")
+			os.system("clear")
+			nombre_jugador_1()
+			print_tablero_jugador1()
+#************************************************************************************************************			
+#************************ GANADOR DOS MULTIPLAYER ************************************************************
+		elif total_jugador1_multiplayer<total_jugador2_multiplayer:
+			print u""" 
+						 ██████╗  █████╗ ███╗   ██╗ █████╗ ██████╗  ██████╗ ██████╗     
+						██╔════╝ ██╔══██╗████╗  ██║██╔══██╗██╔══██╗██╔═══██╗██╔══██╗    
+						██║  ███╗███████║██╔██╗ ██║███████║██║  ██║██║   ██║██████╔╝    
+						██║   ██║██╔══██║██║╚██╗██║██╔══██║██║  ██║██║   ██║██╔══██╗    
+						╚██████╔╝██║  ██║██║ ╚████║██║  ██║██████╔╝╚██████╔╝██║  ██║    
+						 ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝╚═════╝  ╚═════╝ ╚═╝  ╚═╝"""
+			nombre_jugador_2()
+			print u"""
+						  _____|\.
+						                  _.--| SSt |:
+						                 <____|.----||
+						                        .---''---,
+						                         ;..__..'    _...
+						                       ,'/  ;|/..--''    \.
+						                     ,'_/.-/':            :
+						                _..-'''/  /  |  \    \   _|/|
+						               \      /-./_ \;   \    \,;'   \.
+						               ,\    / \:  `:\    \   //    `:`.
+						             ,'  \  /-._;   | :    : ::    ,.   .
+						           ,'     ::   /`-._| |    | || ' :  `.`.)
+						        _,'       |;._:: |  | |    | `|   :    `'
+						      ,'   `.     /   |`-:_ ; |    |  |  : \.
+						      `--.   )   /|-._:    :          |   \ \.
+						         /  /   :_|   ;`-._;   __..--';    : :
+						        /  (    ;|;-./_  _/.-:'o |   /     ' |
+						       /  , \._/_/_./--''/_|:|___|_,'        |
+						      :  /   `'-'--'----'---------'          |
+						      | :     O ._O   O_. O ._O   O_.      ; ;
+						      : `.      //    //    //    //     ,' /
+						    ~~~`.______//____//____//____//_______,'~
+						              //    //~   //    //
+						       ~~   _//   _//   _// ~ _//     ~
+						     ~     / /   / /   / /   / /  ~      ~~
+						          ~~~   ~~~   ~~~   ~~~
+						"""
+			pausa=raw_input("")
+			os.system("clear")
+			nombre_jugador_2()
+			print_tablero_jugador2()
+#************************************************************************************************************************************************
+#************************ EMPATE MULTPLAYER ************************************************************************************ 			
+		else:
+			print u"""
+	██╗  ██╗ █████╗     ███████╗██╗██████╗  ██████╗     ██╗   ██╗███╗   ██╗    ███████╗███╗   ███╗██████╗  █████╗ ████████╗███████╗
+	██║  ██║██╔══██╗    ██╔════╝██║██╔══██╗██╔═══██╗    ██║   ██║████╗  ██║    ██╔════╝████╗ ████║██╔══██╗██╔══██╗╚══██╔══╝██╔════╝
+	███████║███████║    ███████╗██║██║  ██║██║   ██║    ██║   ██║██╔██╗ ██║    █████╗  ██╔████╔██║██████╔╝███████║   ██║   █████╗  
+	██╔══██║██╔══██║    ╚════██║██║██║  ██║██║   ██║    ██║   ██║██║╚██╗██║    ██╔══╝  ██║╚██╔╝██║██╔═══╝ ██╔══██║   ██║   ██╔══╝  
+	██║  ██║██║  ██║    ███████║██║██████╔╝╚██████╔╝    ╚██████╔╝██║ ╚████║    ███████╗██║ ╚═╝ ██║██║     ██║  ██║   ██║   ███████╗
+	╚═╝  ╚═╝╚═╝  ╚═╝    ╚══════╝╚═╝╚═════╝  ╚═════╝      ╚═════╝ ╚═╝  ╚═══╝    ╚══════╝╚═╝     ╚═╝╚═╝     ╚═╝  ╚═╝   ╚═╝   ╚══════╝"""
+			print u"""
+					                       .'             \__/               (  )
+					                     ( )               ||          _      ||
+					                     /|\               ||       .-` \     ||
+					                   .' | '              ||   _.-'    |     ||
+					                  /   |\ \             || .'   `.__.'     ||   _.-..
+					                .'   /| `.            _.-'   _.-'       _.-.`-'`._`.`
+					                \  .' |  |        .-.`    `./      _.-`.    `._.-'
+					                 |.   |  `.   _.-'   `.   .'     .'  `._.`---`
+					                .'    |   |  :   `._..-'.'        `._..'  ||
+					               /      |   \  `-._.'    ||                 ||
+					              |     .'|`.  |           ||_.--.-._         ||
+					              '    /  |  \ \       __.--'\    `. :        ||
+					               \  .'  |   \|   ..-'   \   `._-._.'        ||
+					`.._            |/    |    `.  \  \    `._.-              ||
+					    `-.._       /     |      \  `-.'_.--'                 ||
+					         `-.._.'      |      |        | |         _ _ _  _'_ _ _ _ _
+					              `-.._   |      \        | |        |_|_|_'|_|_|_|_|_|_|
+					                  [`--^-..._.'        | |       /....../|  __   __  |
+					                   \`---.._|`--.._    | |      /....../ | |__| |__| |
+					                    \__  _ `-.._| `-._|_|_ _ _/_ _ _ /  | |__| |__| |
+					                     \   _o_   _`-._|_|_|_|_|_|_|_|_/   '-----------/
+					                      \_`.|.'  _  - .--.--.--.--.--.`--------------'
+					      .```-._ ``-.._   \__   _    _ '--'--'--'--'--'  - _ - _  __/
+					 .`-.```-._ ``-..__``.- `.      _     -  _  _  _ -    _-   _  __/(.``-._
+					 _.-` ``--..  ..    _.-` ``--..  .. .._ _. __ __ _ __ ..--.._ / .( _..``
+					"""
+
 
 #************************************************************************************************************************************
 #**************************************************************************************************************************************
@@ -1298,8 +1743,12 @@ print u"   \t\tcon los cuales debes de sobrevivir a la flota enemiga, tu misión
 print u"       \t\tantes de que hundan la tuya y lo harás adivinando la hubicacion de los barcos enemigos."
 print u"           \t\t     los cuales se encontrar ocultos en un tablero de 10X10 cuadros"
 print u""
+musica()
+
+musica()
 pausa=raw_input(u"")
-os.system("cls")
+os.system("clear")
+
 #*******************************************************************************************************
 validar_menu=True
 while validar_menu==True:
@@ -1332,7 +1781,7 @@ while validar_menu==True:
 	jugador_dos()
 	jugador_uno()
 	try:
-		os.system("cls")
+		os.system("clear")
 		print u"\t\t\t\t\t███╗   ███╗███████╗███╗   ██╗██╗   ██╗"
 		print u"\t\t\t\t\t████╗ ████║██╔════╝████╗  ██║██║   ██║"
 		print u"\t\t\t\t\t██╔████╔██║█████╗  ██╔██╗ ██║██║   ██║"
@@ -1395,13 +1844,38 @@ while validar_menu==True:
 						validacion_volver=True
 				except:
 					print "\t\t\t\t\t\tDato no valido"
+		
+		elif opcion_jugadores==3:
+			clace2=dos_jugadores_oculto()
+			clace2.multiplayer_oculto()
+			validacion_volver=True
+			while validacion_volver==True:
+				try:
+
+					regreso_menu=raw_input("\t\t\t\t\t\tDesea volver al menu YES/NO?: ")
+					regreso_menu= regreso_menu.lower()
+					if regreso_menu=="yes":
+					
+						print ""
+						validacion_volver=False
+						break
+					elif regreso_menu=="no":
+						validar_menu=False
+						validacion_volver=False
+						break
+					else:
+						print "\t\t\t\t\t\tOpcion no valida"
+						validacion_volver=True
+				except:
+					print "\t\t\t\t\t\tDato no valido"
+
 		elif opcion_jugadores==4:
 			break
 
 
 
 		else:
-			os.system("cls")
+			os.system("clear")
 
 			print u"\t\t\t\t\t███╗   ███╗███████╗███╗   ██╗██╗   ██╗"
 			print u"\t\t\t\t\t████╗ ████║██╔════╝████╗  ██║██║   ██║"
@@ -1420,7 +1894,7 @@ while validar_menu==True:
 
 		
 	except ValueError:
-		os.system("cls")
+		os.system("clear")
 		print u"\t\t\t\t\t███╗   ███╗███████╗███╗   ██╗██╗   ██╗"
 		print u"\t\t\t\t\t████╗ ████║██╔════╝████╗  ██║██║   ██║"
 		print u"\t\t\t\t\t██╔████╔██║█████╗  ██╔██╗ ██║██║   ██║"
@@ -1436,7 +1910,7 @@ while validar_menu==True:
 		pausa=raw_input (u"\t\t\t\t\t   No se pueden ingresar letras")
 #************************************************************************************************************
 #*********************************************************************************************************************
-os.system("cls")
+os.system("clear")
 print u""
 print u""
 print u"\t\t███████╗██╗███╗   ██╗    ██████╗ ███████╗██╗              ██╗██╗   ██╗███████╗ ██████╗  ██████╗ "
